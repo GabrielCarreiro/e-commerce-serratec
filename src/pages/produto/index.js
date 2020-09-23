@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../services/api';
 import { Produto, Title } from './style'
-import ProdutoCard from '../../componentes/produtoCard'
 
 const Produtos = () => {
     const [Produtos, setProduto] = useState([]);
@@ -19,7 +18,6 @@ const Produtos = () => {
     ;
     useEffect(() => {
         loadProdutos();
-
     }, []);
 
     /*const removeFuncionario = async (funcionario) => {

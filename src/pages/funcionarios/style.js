@@ -58,7 +58,7 @@ export const Title = styled.div`
     
     button{
         width: 120px;
-        height: 45px;
+        height: 40px;
         background-color: #3ec300;
         color: #fff;
         border: 0;
@@ -71,6 +71,64 @@ export const Title = styled.div`
             color: #fafafa;
         }
 
+    }
+
+`;
+
+export const Form = styled.div`
+    margin-bottom: 25%;
+    margin-top: 25%;
+    margin-left: 30%;
+
+    input{
+        width: 200px;
+        border:0;
+        color: #4d4d4d;
+        padding: 10px;
+        height: 40px;
+        border-radius: 8px;
+        font-size: 18px;
+
+         & + input{
+            margin-left: 5px; 
+        }
+
+        &::placeholder{
+            color: #b0b0b0;
+        }
+    }
+
+    button{
+        width: 120px;
+        height: 45px;
+        margin-left: 5px;
+        background-color: #3ec300;
+        color: #fff;
+        border: 0;
+        border-radius: 8px;
+        transition: 0.2s;
+
+        &:hover{
+            background-color: #46d900;
+            color: #fafafa;
+        }
+
+    }
+
+    @media(max-width:750px){
+        display: block;
+
+        input{
+            margin-left: 5px;
+            margin-top: 5px;
+            display: block;
+        }
+
+        button{
+            display: block;
+            margin-top: 10px;
+            width: 200px;
+        }
     }
 
 `;
