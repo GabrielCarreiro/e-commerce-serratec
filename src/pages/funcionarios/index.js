@@ -23,7 +23,7 @@ const Funcionarios = () => {
             console.log("loadFuncionario", error)
         }
     };
-    ;
+    
     useEffect(() => {
         loadFuncionarios();
 
