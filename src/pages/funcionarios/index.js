@@ -123,13 +123,14 @@ const Funcionarios = () => {
 
     return (
         <>
+            <Header />
             <Title>
                 <button onClick={handleNew}> Cadastrar </button>
             </Title>
             <Funcionario>
                 {Funcionarios.map((funcionario) => {
                     return (
-                        <div key={funcionario.id}>
+                        <div className="cards0" key={funcionario.id}>
                             <div>
                                 <h3>{funcionario.nome}</h3>
                                 <p> Cpf:{funcionario.cpf}</p>

@@ -48,14 +48,26 @@ export const Funcionario = styled.div`
             }
         }
     }
+    .cards0 {
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+      }
+      
+    .cards0:hover {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+      }
 
 
 `;
 
 export const Title = styled.div`
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     
+    h1{
+        color: #fff;
+    }
+
     button{
         width: 120px;
         height: 40px;
@@ -63,8 +75,8 @@ export const Title = styled.div`
         color: #fff;
         border: 0;
         border-radius: 8px;
-        
         transition: 0.2s;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 
         &:hover{
             background-color: #46d900;
