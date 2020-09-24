@@ -4,6 +4,7 @@ import { Funcionario, Title, Form } from './style'
 import { FiTrash2, FiEdit } from 'react-icons/fi'
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
+import Header from '../../components/Header'
 /*import Cliente from '../../models/Cliente';*/
 const Funcionarios = () => {
     const [Funcionarios, setFuncionarios] = useState([]);
