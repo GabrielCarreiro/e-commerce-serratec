@@ -8,12 +8,19 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { FiTrash2, FiEdit } from 'react-icons/fi'
+import Modal from '@material-ui/core/Modal';
+import {Conteudo} from './style'
 
 
 /*import Cliente from '../../models/Cliente';*/
 const ControleProduto = () => {
     const [produto, setProduto] = useState([]);
-    
+    const [modalStyle] = React.useState(getModalStyle);
+    const [open, setOpen] = React.useState(false);
+    const [categoria, setCategoria] = useState([]);
+    const [funcionario, setFuncionario] = useState([]);
+
 
     const loadProduto = async () => {
         try {
@@ -23,14 +30,36 @@ const ControleProduto = () => {
             console.log("loadProduto", error)
         }
     };
+
+    const loadCategoria = async () => {
+        try {
+            const response = await api.get('categoria');
+            setCategoria(response.data)
+        } catch (error) {
+            console.log("loadCategoria", error)
+        }
+    };
+
+    const loadFuncionario = async () => {
+        try {
+            const response = await api.get('funcionario');
+            setFuncionario(response.data)
+        } catch (error) {
+            console.log("loadFuncionario", error)
+        }
+    };
+
+    
     useEffect(() => {
         loadProduto();
+        loadCategoria();
+        loadFuncionario();
     }, []);
 
     const StyledTableCell = withStyles((theme) => ({
         head: {
-            backgroundColor: theme.palette.common.black,
-            color: theme.palette.common.white,
+            backgroundColor: theme.palette.common.light,
+            color: theme.palette.common.black,
         },
         body: {
             fontSize: 14,
@@ -45,17 +74,6 @@ const ControleProduto = () => {
         },
     }))(TableRow);
 
-    function createData(name, calories, fat, carbs, protein) {
-        return { name, calories, fat, carbs, protein };
-    }
-
-    const rows = [
-        createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-        createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-        createData('Eclair', 262, 16.0, 24, 6.0),
-        createData('Cupcake', 305, 3.7, 67, 4.3),
-        createData('Gingerbread', 356, 16.0, 49, 3.9),
-    ];
 
     const useStyles = makeStyles({
         table: {
@@ -63,23 +81,62 @@ const ControleProduto = () => {
         },
     });
 
+    function rand() {
+        return Math.round(Math.random() * 20) - 10;
+    }
+
+    function getModalStyle() {
+        const top = 50 + rand();
+        const left = 50 + rand();
+
+        return {
+            top: `${top}%`,
+            left: `${left}%`,
+            transform: `translate(-${top}%, -${left}%)`,
+        };
+    }
+
+    const useStylesModel = makeStyles((theme) => ({
+        paper: {
+            position: 'absolute',
+            width: 400,
+            backgroundColor: theme.palette.background.paper,
+            border: '2px solid #000',
+            boxShadow: theme.shadows[5],
+            padding: theme.spacing(2, 4, 3),
+        },
+    }));
+    const classesModel = useStylesModel();
+
     const classes = useStyles();
 
+
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const removeProduto = async (produto) => {
+        await api.delete(`produto/${produto.id}`)
+        loadProduto();
+    }
 
 
     return (
         <>
             <div>
-                
                 <TableContainer component={Paper}>
                     <Table className={classes.table} aria-label="customized table">
-                        <TableHead>
-                            <TableRow>
-                                <StyledTableCell>Dessert (100g serving)</StyledTableCell>
-                                <StyledTableCell align="right">Calories</StyledTableCell>
-                                <StyledTableCell align="right">Fat&nbsp;(g)</StyledTableCell>
-                                <StyledTableCell align="right">Carbs&nbsp;(g)</StyledTableCell>
-                                <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell>
+                        <TableHead >
+                            <TableRow style={{ backgroundColor: "#FFFFFF !important" }}>
+                                <StyledTableCell>Nome</StyledTableCell>
+                                <StyledTableCell align="center">Valor</StyledTableCell>
+                                <StyledTableCell align="center">Categoria</StyledTableCell>
+                                <StyledTableCell align="center">Estoque</StyledTableCell>
+                                <StyledTableCell align="center">Gerenciar</StyledTableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -88,17 +145,68 @@ const ControleProduto = () => {
                                     <StyledTableCell component="th" scope="row">
                                         {row.nome}
                                     </StyledTableCell>
-                                    <StyledTableCell align="right">{row.valor}</StyledTableCell>
-                                    <StyledTableCell align="right">{row.descricao}</StyledTableCell>
-                                
+                                    <StyledTableCell align="center">{row.valor}</StyledTableCell>
+                                    <StyledTableCell align="center">{row.nomeCategoria}</StyledTableCell>
+                                    <StyledTableCell align="center">{row.qtdEstoque}</StyledTableCell>
+                                    <StyledTableCell align="center"> <FiTrash2 size={20} onClick={() => removeProduto(row)} /> <FiEdit size={20} /></StyledTableCell>
                                 </StyledTableRow>
                             ))}
                         </TableBody>
                     </Table>
                 </TableContainer>
 
-            </div>
+                <div>
+                    <button type="button" onClick={handleOpen}>
+                        Open Modal
+                    </button>
+                    <Modal
+                        open={open}
+                        onClose={handleClose}
 
+                    >
+                        {                          
+                            <Conteudo>
+                                 <form>
+                                     <div className="grupo">
+                                        <label id="nome"> Nome </label>
+                                            <input type="text" id="nome"/>
+
+                                        <label id="descricao"> Descrição </label>
+                                            <input type="text" id="descricao"/>
+
+                                        <label id="qtdEstoque"> Estoque </label>
+                                        <input type="text" id="qtdEstoque"/>
+
+                                        <label id="valor"> valor </label>
+                                        <input type="text" id="valor"/>
+
+                                        <label id="categoria"> Categoria </label>
+                                        <select id="categoria"> 
+                                            {categoria.map((categ)=>{
+                                                return(
+                                                    <option value={categ.id}>{categ.nome}</option>
+                                                )
+                                            })}
+                                            
+                                        </select>
+                                        <label id="funcionario"> Funcionario </label>
+                                        <select id="funcionario"> 
+                                            {funcionario.map((funcio)=>{
+                                                return(
+                                                    <option value={funcio.id}>{funcio.nome}</option>
+                                                )
+                                            })}
+                                            
+                                        </select>
+
+                                     </div>
+                                </form>
+                            </Conteudo>
+                            
+                        }
+                    </Modal>
+                </div>
+            </div>
         </>
     )
 }
