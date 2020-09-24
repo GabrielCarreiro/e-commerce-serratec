@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import api from '../../services/api';
 import { Funcionario, Title } from './style'
 import { FiTrash2, FiEdit } from 'react-icons/fi'
+import Header from '../../components/Header';
+
 const Funcionarios = () => {
     const [Funcionarios, setFuncionarios] = useState([]);
 
@@ -25,13 +27,15 @@ const Funcionarios = () => {
     }
     return (
         <>
+            <Header />
             <Title>
+                <h1>Controle de Funcionários</h1>
                 <button> Cadastrar </button>
             </Title>
             <Funcionario>
                 {Funcionarios.map((funcionario) => {
                     return (
-                        <div key={funcionario.id}>
+                        <div className="cards0" key={funcionario.id}>
                             <div>
                                 <h3>{funcionario.nome}</h3>
                                 <p> Cpf: {funcionario.cpf}</p>

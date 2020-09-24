@@ -20,6 +20,18 @@ export default createGlobalStyle`
         font: 16px sans-serif;
     }
 
+    body::-webkit-scrollbar {
+        width: 0.30rem;
+    }
+      
+    body::-webkit-scrollbar-track {
+        background: #1e1e24;
+    }
+      
+    body::-webkit-scrollbar-thumb {
+        background: #5a5adf;
+    }
+
     button{
         curso: pointer;
     }
