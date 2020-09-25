@@ -5,6 +5,7 @@ import Produtos from '../pages/produto';
 import Home from '../pages/home';
 import ControleProduto from '../pages/controle/controleProduto';
 import ControleCategoria from '../pages/controle/controleCategoria';
+import ControleCliente from '../pages/controle/controleCliente';
 
 const Routes = ()=>(
     <Switch>
@@ -13,6 +14,7 @@ const Routes = ()=>(
         <Route path="/produto" component={Produtos}/>
         <Route path="/controle/produto" component={ControleProduto}/>
         <Route path="/controle/categoria" component={ControleCategoria}/>
+        <Route path="/controle/cliente" component={ControleCliente}/>
     </Switch>
 )
 
