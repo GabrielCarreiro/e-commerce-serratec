@@ -62,8 +62,11 @@ function ButtonAppBar() {
     <div className={classes.root}>
       <AppBar position="absolute" style={{ backgroundColor: "#5c5ca8", boxShadow: "0 4px 4px -4px rgb(0,0,0)" }} >
         <Toolbar>
+
+          
           <Button color="inherit" href="/">AdvancedStore</Button>
           <Button color="inherit"> <a href="/carrinho" style={{textDecoration:"none", color: "#fff"}}> Carrinho  </a></Button>
+
           <Typography style={{ flex: 1 }} />
           <Button color="inherit" style={{ boxShadow: "0 4px 4px -4px rgb(0,0,0)" }} onClick={handleOpen}>Login</Button>
           <Button color="inherit">LogOut</Button>

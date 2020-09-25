@@ -184,16 +184,19 @@ const ControleCategoria = () => {
                                     <StyledTableCell align="center">{catego.nome}</StyledTableCell>
                                     <StyledTableCell align="center">{catego.descricao}</StyledTableCell>
                                     <StyledTableCell align="center"> <FiTrash2 size={20} onClick={() => removeCategoria(catego)} />
-                                    <FiEdit size={20} onClick={e => teste(catego.id)} /></StyledTableCell>
+                                        <FiEdit size={20} onClick={e => teste(catego.id)} /></StyledTableCell>
+
                                 </StyledTableRow>
                             ))}
                         </TableBody>
                     </Table>
                 </TableContainer>
                 <div>
+
                     <Modal
                         open={open}
-                        onClose={handleClose}>
+                        onClose={handleClose}
+                    >
                         {
                             <div>
                                 {status ? (
