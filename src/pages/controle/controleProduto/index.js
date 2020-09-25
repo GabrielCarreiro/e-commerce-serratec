@@ -332,7 +332,6 @@ const ControleProduto = () => {
 
                                                 <label id="img"> Imagem </label>
                                                 <input type="url" value={newImagem} onChange={e => setNewImagem(e.target.value)} id="img" />
-                                                
                                                 <button type="submit" > Alterar</button>
 
                                             </div>
