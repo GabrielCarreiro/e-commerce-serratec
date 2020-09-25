@@ -7,8 +7,7 @@ import Header from '../../components/Header';
 const Produtos = () => {
     const [Produtos, setProduto] = useState([]);
     const [ProdutoFiltrado, setProdutoFiltrado] = useState("");
-    const [totalProdutos, setTotalProdutos] = useState([]);
-
+    
     const loadProdutos = async () => {
         try {
             const response = await api.get('produto');
@@ -18,14 +17,22 @@ const Produtos = () => {
             console.log("loadProdutos", error)
         }
     };
-    ;
+    
     useEffect(() => {
         loadProdutos();
     }, []);
 
     function adicionarCarrinho(produto){
-        setTotalProdutos(produto)
-        console.log(totalProdutos)
+           var teste = [];
+
+           if(localStorage.getItem('@LOJA:produto')){
+                var TotalProdutos = JSON.parse(localStorage.getItem('@LOJA:produto'));
+                TotalProdutos.push(produto)
+                localStorage.setItem('@LOJA:produto',JSON.stringify(TotalProdutos));
+           }else{
+                teste.push(produto)
+                localStorage.setItem('@LOJA:produto',JSON.stringify(teste));
+           }        
     }
 
     return (
@@ -52,7 +59,7 @@ const Produtos = () => {
                                     </div>
                                     <span className="qtd">Estoque: {produto.qtdEstoque}</span>
                                     <div className="cards3">
-                                        <p>R$:{produto.valor}</p>
+                                        <p>{produto.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
                                         <button type="button" onClick={e => adicionarCarrinho(produto)}>Comprar</button>
                                     </div>
                                 </div>
