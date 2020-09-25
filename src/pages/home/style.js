@@ -2,7 +2,11 @@ import styled from 'styled-components';
 
 export const HomePage = styled.div`
         background-color: #7c7ce0;
-        margin-top: 28%;
+        margin-top: 15%;
+        margin-left: 32%;
+        max-width: 500px;
+        height: 300px;
+        border-radius: 14px;
         display: flex;
         justify-content: center;
         align-items:center;

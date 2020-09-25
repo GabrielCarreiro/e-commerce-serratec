@@ -3,8 +3,6 @@ import api from '../../../services/api';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 
-
-/*import Cliente from '../../models/Cliente';*/
 const ControleCliente = () => {
     const [modalStyle] = React.useState(getModalStyle);
     const [open, setOpen] = React.useState(false);
