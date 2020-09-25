@@ -14,10 +14,11 @@ export default createGlobalStyle`
 
     html,body, #root{
         height: 100%
+        
     }
 
-    body, input, button{
-        font: 16px sans-serif;
+    body, input, button, select{
+        font: 16px 'Roboto';
     }
 
     body::-webkit-scrollbar {
