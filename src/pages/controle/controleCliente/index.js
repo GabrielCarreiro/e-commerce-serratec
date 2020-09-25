@@ -6,8 +6,6 @@ import { Table } from './style';
 import { FiTrash2, FiEdit } from 'react-icons/fi'
 
 
-
-/*import Cliente from '../../models/Cliente';*/
 const ControleCliente = () => {
     const [modalStyle] = React.useState(getModalStyle);
     const [open, setOpen] = React.useState(false);

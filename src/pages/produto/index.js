@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../services/api';
-import { Produto, Title } from './style'
-import Header from '../../components/Header'
+import { Produto, Title } from './style';
+import Header from '../../components/Header';
 
 
 const Produtos = () => {
     const [Produtos, setProduto] = useState([]);
     const [ProdutoFiltrado, setProdutoFiltrado] = useState("");
-    
-
+    const [totalProdutos, setTotalProdutos] = useState([]);
 
     const loadProdutos = async () => {
         try {
@@ -24,10 +23,11 @@ const Produtos = () => {
         loadProdutos();
     }, []);
 
-    /*const removeFuncionario = async (funcionario) => {
-        await api.delete(`funcionario/${funcionario.id}`)
-        loadFuncionarios();
-    }*/
+    function adicionarCarrinho(produto){
+        setTotalProdutos(produto)
+        console.log(totalProdutos)
+    }
+
     return (
         <>
             {ProdutoFiltrado === "" ? (
@@ -53,7 +53,7 @@ const Produtos = () => {
                                     <span className="qtd">Estoque: {produto.qtdEstoque}</span>
                                     <div className="cards3">
                                         <p>R$:{produto.valor}</p>
-                                        <button>Comprar</button>
+                                        <button type="button" onClick={e => adicionarCarrinho(produto)}>Comprar</button>
                                     </div>
                                 </div>
                             )
