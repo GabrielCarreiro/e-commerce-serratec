@@ -3,9 +3,12 @@ import api from '../../services/api';
 import { Produto, Title } from './style'
 import Header from '../../components/Header'
 
+
 const Produtos = () => {
     const [Produtos, setProduto] = useState([]);
     const [ProdutoFiltrado, setProdutoFiltrado] = useState("");
+    
+
 
     const loadProdutos = async () => {
         try {
@@ -113,6 +116,9 @@ const Produtos = () => {
                     </>
                 )
             }
+            <div>
+      
+    </div>
         </>
     )
 }
