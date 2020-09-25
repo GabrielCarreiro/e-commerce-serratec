@@ -27,7 +27,6 @@ function ButtonAppBar() {
       <AppBar position="absolute" style={{backgroundColor:"#5c5ca8", boxShadow: "0 4px 4px -4px rgb(0,0,0)"}} >
         <Toolbar>
           
-          
           <Button color="inherit" href="/produto">AdvancedStore</Button>
           <Button color="inherit">Pedidos</Button>
           <Button color="inherit">Carrinho</Button>
