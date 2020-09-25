@@ -10,7 +10,7 @@ const Home = () => {
                 <input type="text" placeholder="Digite seu email" autoComplete="off"></input>
                 <input type="password" placeholder="Digite sua senha" autoComplete="off"></input>
                 <button type="submit">Entra</button>
-                <button type="submit">Cadastra-se</button>
+                <a href="/cadastro">Cadastra-se</a>
             </div>
         </HomePage>
     )

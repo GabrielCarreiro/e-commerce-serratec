@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-/*import api from '../../../services/api';*/
+import api from '../../services/api';
+import {Conteudo} from './style';
+import { useHistory } from 'react-router-dom';
 
 const Cadastro = () => {
 
@@ -7,11 +9,11 @@ const Cadastro = () => {
     const [newCpf, setNewCpf] = useState();
     const [newEmail, setNewEmail] = useState();
     const [newUsuario, setNewUsuario] = useState();
+    const history = useHistory();
 
     
-    /*async function alterarCliente(e) {
+    async function cadastrarCliente(e) {
         e.preventDefault();
-
         const params = {
             nome:newNomeClien,
             usuario:newUsuario,
@@ -28,23 +30,19 @@ const Cadastro = () => {
                 cep: "23451234"
             }
         }
-
         try {
-            await api.put(`cliente/${IdClient}`, params);
-            loadCliente();
-            handleClose();
+            await api.post(`cliente`, params);
+            history.push('/');
         } catch (error) {
-            console.log('Erro ao alterar Cliente', error);
+            console.log('Erro ao cadastrar Cliente', error);
         }
-    }*/
-
-    
+    }
 
     return (
         <>   
-               
+             <Conteudo>
                 <div>
-                    <form >
+                    <form onSubmit={cadastrarCliente} >
                     <label id="nome">Nome</label>
                     <input type="text" id="nome" value={newNomeClien} onChange={e => setnewNomeClien(e.target.value)}/>
 
@@ -59,7 +57,8 @@ const Cadastro = () => {
 
                     <button type="submit"> Alterar </button>
                     </form>
-                </div>         
+                </div>   
+            </Conteudo>        
         </>
     )
 }
