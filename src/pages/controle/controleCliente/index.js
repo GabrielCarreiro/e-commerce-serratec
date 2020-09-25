@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import api from '../../../services/api';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
+import { Table } from './style';
+import { FiTrash2, FiEdit } from 'react-icons/fi'
+
 
 const ControleCliente = () => {
     const [modalStyle] = React.useState(getModalStyle);
@@ -107,18 +110,34 @@ const ControleCliente = () => {
 
     return (
         <>
-            {cliente.map((client) => {
-                return (
-                    <div key={client.id} className="cards">
-                        {client.nome}
-                        {client.cpf}
-                        {client.email}
-                        {client.usuario}
-                        <button type="button" onClick={e => OpenModal(client.id)}>Alterar</button>
-                        <button type="button" onClick={() => removeCliente(client)}> Excluir </button>
-                    </div>
-                )
-            })}
+        <Table >
+            
+            <tr >
+                            <th>Nome</th>
+                            <th>CPF</th>
+                            <th>Email</th>
+                            <th>Usuario</th>
+                            <th>Alterar</th>
+                            <th>Excluir</th>
+            </tr>
+                {cliente.map((client) => {
+                    return (
+                        
+                        <tr key={client.id}  >
+                        
+                            <td style={{width:"10000px"}}>{client.nome}</td> 
+                            <td>{client.cpf}</td>
+                            <td>{client.email}</td>
+                            <td>{client.usuario}</td>
+                            <td className="btnEdit" style={{textAlign:"center"}}><FiEdit size={20} onClick={e => OpenModal(client.id)} /></td>
+                            <td className="btnDel" style={{textAlign:"center"}}><FiTrash2 size={20} onClick={() => removeCliente(client)} /></td>
+                        
+                        </tr>
+                        
+                    )
+                })}
+            
+        </Table>
 
             <Modal
                 open={open}
