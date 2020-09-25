@@ -2,7 +2,11 @@ import styled from 'styled-components';
 
 export const HomePage = styled.div`
         background-color: #7c7ce0;
-        margin-top: 28%;
+        margin-top: 15%;
+        margin-left: 32%;
+        max-width: 500px;
+        height: 300px;
+        border-radius: 14px;
         display: flex;
         justify-content: center;
         align-items:center;
@@ -32,7 +36,7 @@ export const HomePage = styled.div`
 
             
         }
-        button{
+        button, a{
             display: block;
             width: 250px;
             height: 37px;
@@ -47,10 +51,7 @@ export const HomePage = styled.div`
             cursor: pointer;
             opacity: 0.9;
 
-            & + button{
-                margin-top: -20px;
-                 
-            }
+            
 
             a{
                 text-decoration: none;
@@ -61,6 +62,13 @@ export const HomePage = styled.div`
                 background-color: #46d900;
                 color: #fafafa;
             }
+        }
+
+        a{
+            margin-top: -20px;
+            display: flex;
+            justify-content:center;
+            align-items:center;
         }
     }
 
