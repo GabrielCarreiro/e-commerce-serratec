@@ -36,7 +36,7 @@ export const HomePage = styled.div`
 
             
         }
-        button{
+        button, a{
             display: block;
             width: 250px;
             height: 37px;
@@ -51,10 +51,7 @@ export const HomePage = styled.div`
             cursor: pointer;
             opacity: 0.9;
 
-            & + button{
-                margin-top: -20px;
-                 
-            }
+            
 
             a{
                 text-decoration: none;
@@ -65,6 +62,13 @@ export const HomePage = styled.div`
                 background-color: #46d900;
                 color: #fafafa;
             }
+        }
+
+        a{
+            margin-top: -20px;
+            display: flex;
+            justify-content:center;
+            align-items:center;
         }
     }
 
