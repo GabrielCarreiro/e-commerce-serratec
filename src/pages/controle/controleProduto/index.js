@@ -248,7 +248,7 @@ const ControleProduto = () => {
                         {
                             <Conteudo>
                                 {status ? (
-                                    <form onSubmit={cadastrarProduto}>
+                                    <form className="produtoModal" onSubmit={cadastrarProduto}>
                                         <div className="grupo">
                                             <label id="nome" value={newNome} onChange={e => setNewNome(e.target.value)} > Nome </label>
                                             <input type="text" id="nome" />
@@ -263,7 +263,7 @@ const ControleProduto = () => {
                                             <input type="text" value={newValor} onChange={e => setNewValor(e.target.value)} id="valor" />
 
                                             <label id="categoria"> Categoria </label>
-                                            <select id="categoria" onChange={e => setNewIDCategoria(e.target.value)}>
+                                            <select id="categoria"  onChange={e => setNewIDCategoria(e.target.value)}>
                                                 
                                                 {categoria.map((categ) => {
                                                     return (
@@ -282,7 +282,7 @@ const ControleProduto = () => {
                                                 })}
                                             </select>
 
-                                            <label id="dtfabricacao"> Data Fabricação </label>
+                                            <label id="dtfabricacao"> Fabricação </label>
                                             <input type="text" value={newDataFabricao} onChange={e => setNewDataFabricao(e.target.value)} id="dtfabricacao" />
 
                                             <label id="img"> Imagem </label>
@@ -293,7 +293,7 @@ const ControleProduto = () => {
                                         </div>
                                     </form>
                                 ) : (
-                                        <form onSubmit={alterarProduto}>
+                                        <form className="produtoModal" onSubmit={alterarProduto}>
                                             <div className="grupo">
                                                 <label id="nome" > Nome </label>
                                                 <input type="text" value={newNome} onChange={e => setNewNome(e.target.value)} id="nome" />
@@ -327,7 +327,7 @@ const ControleProduto = () => {
                                                     })}
                                                 </select>
 
-                                                <label id="dtfabricacao"> Data Fabricação </label>
+                                                <label id="dtfabricacao"> Fabricação </label>
                                                 <input type="text" value={newDataFabricao} onChange={e => setNewDataFabricao(e.target.value)} id="dtfabricacao" />
 
                                                 <label id="img"> Imagem </label>
