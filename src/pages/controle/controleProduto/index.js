@@ -11,6 +11,7 @@ import Paper from '@material-ui/core/Paper';
 import { FiTrash2, FiEdit } from 'react-icons/fi'
 import Modal from '@material-ui/core/Modal';
 import { Conteudo } from './style'
+import { Botao } from './style'
 import { TabUnselectedSharp, TrafficRounded } from '@material-ui/icons';
 
 
@@ -204,9 +205,11 @@ const ControleProduto = () => {
 
     return (
         <>
+            <Botao>
             <button type="button" onClick={handleOpen}>
-                Open Modal
-                    </button>
+                Novo Produto
+            </button>
+            </Botao>
             <div>
                 <TableContainer component={Paper}>
                     <Table className={classes.table} aria-label="customized table">
@@ -256,7 +259,7 @@ const ControleProduto = () => {
                                             <label id="qtdEstoque"> Estoque </label>
                                             <input type="text" value={newEstoque} onChange={e => setNewEstoque(e.target.value)} id="qtdEstoque" />
 
-                                            <label id="valor"> valor </label>
+                                            <label id="valor"> Valor </label>
                                             <input type="text" value={newValor} onChange={e => setNewValor(e.target.value)} id="valor" />
 
                                             <label id="categoria"> Categoria </label>
@@ -301,7 +304,7 @@ const ControleProduto = () => {
                                                 <label id="qtdEstoque"> Estoque </label>
                                                 <input type="text" value={newEstoque} onChange={e => setNewEstoque(e.target.value)} id="qtdEstoque" />
 
-                                                <label id="valor"> valor </label>
+                                                <label id="valor"> Valor </label>
                                                 <input type="text" value={newValor} onChange={e => setNewValor(e.target.value)} id="valor" />
 
                                                 <label id="categoria"> Categoria </label>
@@ -329,7 +332,6 @@ const ControleProduto = () => {
 
                                                 <label id="img"> Imagem </label>
                                                 <input type="url" value={newImagem} onChange={e => setNewImagem(e.target.value)} id="img" />
-
                                                 <button type="submit" > Alterar</button>
 
                                             </div>
