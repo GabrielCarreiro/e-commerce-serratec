@@ -113,7 +113,7 @@ const ControleCliente = () => {
         <Table >
             
             <tr >
-                            <th>Nome</th>
+                            <th style={{textAlign:"left"}}>Nome</th>
                             <th>CPF</th>
                             <th>Email</th>
                             <th>Usuario</th>
@@ -125,7 +125,7 @@ const ControleCliente = () => {
                         
                         <tr key={client.id}  >
                         
-                            <td style={{width:"10000px"}}>{client.nome}</td> 
+                            <td style={{width:"10000px",textAlign:"left"}}>{client.nome}</td> 
                             <td>{client.cpf}</td>
                             <td>{client.email}</td>
                             <td>{client.usuario}</td>
