@@ -10,6 +10,8 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { FiTrash2, FiEdit } from 'react-icons/fi'
 import Modal from '@material-ui/core/Modal';
+import { Botao } from './style.js';
+import { Conteudo } from './style.js';
 import { TabUnselectedSharp, TrafficRounded } from '@material-ui/icons';
 
 
@@ -161,9 +163,11 @@ const ControleCategoria = () => {
 
     return (
         <>
-            <button type="button" onClick={handleOpen}>
-                Open Modal
-                    </button>
+            <Botao>
+                <button type="button" onClick={handleOpen}>
+                    Nova Categoria
+                </button>
+            </Botao>
             <div>
                 <TableContainer component={Paper}>
                     <Table className={classes.table} aria-label="customized table">
@@ -198,7 +202,7 @@ const ControleCategoria = () => {
                         onClose={handleClose}
                     >
                         {
-                            <div>
+                            <Conteudo>
                                 {status ? (
                                     <form onSubmit={cadastrarCategoria}>
                                         <div className="grupo">
@@ -220,7 +224,7 @@ const ControleCategoria = () => {
                                             </div>
                                         </form>
                                     )}
-                            </div>
+                            </Conteudo>
                         }
                     </Modal>
                 </div>

@@ -3,7 +3,8 @@ import api from '../../../services/api';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import { Table } from './style';
-import { FiTrash2, FiEdit } from 'react-icons/fi'
+import { FiTrash2, FiEdit } from 'react-icons/fi';
+import { ClienteModal} from './style';
 
 
 const ControleCliente = () => {
@@ -145,8 +146,8 @@ const ControleCliente = () => {
                 aria-labelledby="simple-modal-title"
                 aria-describedby="simple-modal-description"
                 >
-                {<div>
-                    <form onSubmit={alterarCliente}>
+                {<ClienteModal>
+                    <form className="formCliente" onSubmit={alterarCliente}>
                     <label id="nome">Nome</label>
                     <input type="text" id="nome" value={newNomeClien} onChange={e => setnewNomeClien(e.target.value)}/>
 
@@ -161,7 +162,7 @@ const ControleCliente = () => {
 
                     <button type="submit"> Alterar </button>
                     </form>
-                </div>
+                </ClienteModal>
             }
             </Modal>
         </>
