@@ -7,7 +7,8 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Modal from '@material-ui/core/Modal';
-import Home from '../pages/home'
+import Home from '../pages/home';
+import { BotaoNav } from './sytle';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -69,7 +70,8 @@ function ButtonAppBar() {
           <Button color="inherit"> <a href="/carrinho" style={{textDecoration:"none", color: "#fff"}}> Carrinho  </a></Button>
 
           <Typography style={{ flex: 1 }} />
-          <Button color="inherit" style={{ boxShadow: "0 4px 4px -4px rgb(0,0,0)" }} onClick={handleOpen}>Login</Button>
+          <BotaoNav>
+          <Button color="inherit" onClick={handleOpen}>Login</Button></BotaoNav>  
           <Button color="inherit">LogOut</Button>
         </Toolbar>
       </AppBar>

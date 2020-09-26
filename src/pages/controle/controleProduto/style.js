@@ -30,37 +30,41 @@ export const Conteudo = styled.div`
     display: flex;
     background-color: #fff;
     justify-content: center;
-    max-width:960px;
+    max-width:880px;
     height: 380px;
     margin:150px auto;
     background-color: #f5f5f5;
     
 
     .grupo{
-        display: grid;
-        grid-template-columns: 1fr 2fr 1fr 2fr;
-        grid-template-rows: 25% 25% 25% 25%;
-        column-gap: 5px;
-        row-gap: 10px;
-        margin: 20px 30px 0 0;
+        display: flex;
+        flex-wrap: wrap;
+        flex-flow: row-wrap;
+        margin: 0 40px;
+        padding: 30px;
+            
         
         label{
             color: #7C7CE0;
             font-weight: 600;
             display: flex;
             justify-content: flex-end;
-            align-items: flex-end;
+            align-self: flex-end;
+            width: 100px;
+            flex-grow:1;
         }
 
         input{
             border: none;
             border-bottom: 2px solid;
-            width: 100%;
-            height: 100%;
+            width: 270px;
+            height: 40px;
             padding: 8px;
             border-color: #7C7CE0;
             color: #000;
             background-color: transparent;
+            align-self: flex-end;
+            flex-grow: 1;
             
             &:hover,
             &:focus{
@@ -78,6 +82,9 @@ export const Conteudo = styled.div`
             border-color: #7C7CE0;
             background-color: transparent;
             padding: 8px 8px 0 8px;
+            width: 270px;
+            height: 40px;
+            flex-grow: 1;
 
             &:hover,
             &:focus{
@@ -90,10 +97,7 @@ export const Conteudo = styled.div`
         }
         
         button{
-            position: absolute;
-            left:50%;
-            bottom:30%;
-            transform: translateX(-50%);
+            margin: 50px auto 0px auto;
             display: flex;
             justify-content: center;
             align-items: center;
