@@ -1,39 +1,17 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 40px;
+export const BotaoNav = styled.span`
+    button{
+        background-color:#5c5ca8;
+        color:  #fff;
+        border-radius: 8px;
+        border: 1px solid;
+        border-color: #fff;
 
-  ul {
-    display: flex;
-    list-style:none;
-    
-    li {
-      font-size: 16px;
-
-      & + li {
-        margin-left: 15px;
-      }
-
-      a {
-        color: #fff;
-        text-decoration: none;
-
-        &:hover {
-          color: #04D361;
+        &:hover{
+            background-color: #fff;
+            color: #5c5ca8;
+            transition: 0.5s;
         }
-      }
-
-      span {
-        color: #333;
-        cursor: pointer;
-
-        &:hover {
-          color: #04D361;
-        }
-      }
     }
-  }
 `;

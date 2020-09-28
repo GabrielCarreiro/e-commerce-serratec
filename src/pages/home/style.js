@@ -1,76 +1,114 @@
 import styled from 'styled-components';
 
-export const HomePage = styled.div`
-        background-color: #7c7ce0;
-        margin-top: 15%;
-        margin-left: 32%;
-        max-width: 500px;
-        height: 300px;
-        border-radius: 14px;
-        display: flex;
-        justify-content: center;
-        align-items:center;
-        
+export const Produto = styled.div`
+    background-color: #7c7ce0;
+    margin-top: 40px;
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+
     div{
+        background-color: #fafafa;
+        padding: 5px;
+        border-radius: 8px;
+        position: relative;
+
+        .cards1{
+            display: block;
+            text-align: center;
+            max-width:250px;
+            height: 260px;
             
-        input{
-            margin-top: 5px;
-            width: 250px;
+            h6{
+                color: #7d7d7d;
+            }
+            h3{
+                color: #4d4d4d;
+            }
+            img{
+                max-width: 100%;
+                max-height: 180px;
+             }
+        }
+
+        .cards2{
             height: 40px;
-            display: block;
-            margin-left: auto;
-            padding: 8px;
-            margin-right: auto;
-            border: 0;
-            background-color: #7c7ce0;
-            color: #fff;
-            border-bottom: 1px solid #fff;
-
-            & + input{
-                margin-bottom: -20px;
-            }
-
-            &::placeholder{
-                color: #fff;
-            }
-
             
-        }
-        button, a{
-            display: block;
-            width: 250px;
-            height: 37px;
-            background-color: #3ec300;           
-            font-weight: bold;
-            font-size: 16px;
-            border: 0;
-            color: #fff;
-            border-radius: 6px;
-            transition: 0.2s;
-            margin: 25px;
-            cursor: pointer;
-            opacity: 0.9;
-
-            
-
-            a{
-                text-decoration: none;
-                color: #fff;
-            }
-
-            &:hover{
-                background-color: #46d900;
-                color: #fafafa;
+             p{
+                color: #7d7d7d; 
             }
         }
-
-        a{
-            margin-top: -20px;
+        .cards3{
             display: flex;
-            justify-content:center;
-            align-items:center;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            color: #424242;
+            font-size: 18px;
+
+            button{
+                width: 80px;
+                height: 35px;
+                background-color: #3ec300;
+                color: #fff;
+                border: 0;
+                border-radius: 8px;
+                cursor: pointer;
+
+                &:hover{
+                    background-color: #46d900;
+                    color: #fafafa;
+                }
+               
+            }
         }
+
+        .qtd{
+            margin-left: 4px;
+            color: #a1a1a1; 
+        }
+        
+    }
+    .cards0{
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1); 
     }
 
+    .cards0:hover{
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
+
+`;
+
+
+export const Title = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    
+    h1{
+        color: #fff;
+    }
+    label{
+        color: #fff;
+        margin-right: 7px;
+        margin-top: 3px;
+        justify-self: right;
+    }
+
+    input{
+        height: 25px;
+        border-radius: 20px;
+        border: 0;
+        padding: 8px;
+        color:  #4d4d4d;
+        justify-self: stretch;
+    }
+
+`;
+
+export const Content = styled.div`
+    
+    margin-top: 50px;
 `;
 

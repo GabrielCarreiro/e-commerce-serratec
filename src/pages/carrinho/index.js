@@ -38,8 +38,7 @@ const Carrinho = () => {
         setValorTotal(total.reduce((total, currentElement) => total + currentElement))
     }
 
-   
-
+    
     const comprar = async () =>{
 
         if(!localStorage.getItem('@LOJA:user')){
@@ -47,24 +46,21 @@ const Carrinho = () => {
             return;
         }else{
 
-        var produtos = JSON.parse(localStorage.getItem('@LOJA:produto'));
+            produto.map((prod,t) => {
 
-        produtos.map((prod,t) => {
-
-            const params = {
-                nome: prod.nome,
-                descricao: prod.descricao,
-                qtdEstoque: prod.qtdEstoque -1,
-                valor: prod.valor,
-                idCategoria: prod.idCategoria,
-                idFuncionario: prod.idFuncionario,
-                dataFabricao: prod.dataFabricacao,
-                fotoLink: prod.fotoLink
-            }
-                alterarEstoque(params,prod.id)
-                produtos.splice(t, 1)
-            
-        })  
+                const params = {
+                    nome: prod.nome,
+                    descricao: prod.descricao,
+                    qtdEstoque: prod.qtdEstoque -1,
+                    valor: prod.valor,
+                    idCategoria: prod.idCategoria,
+                    idFuncionario: prod.idFuncionario,
+                    dataFabricao: prod.dataFabricacao,
+                    fotoLink: prod.fotoLink
+                }
+                    alterarEstoque(params,prod.id)
+                    produto.splice(t, 1)
+            })  
         
 
         
@@ -76,7 +72,6 @@ const Carrinho = () => {
         }
     }
     
-
     async function alterarEstoque (params, produtoID){
         try {
            await api.put(`produto/${produtoID}`, params);
@@ -110,8 +105,7 @@ const Carrinho = () => {
                                     <th>Valor</th>
                                     <th>Excluir</th>
                                 </tr>
-                                <tr>
-                                  
+                                <tr>         
                                     <td><img src={p.fotoLink} style={{ maxWidth: "65px" }} ></img></td>
                                     <td > {p.nome} </td>
                                     <td > {p.descricao}</td>

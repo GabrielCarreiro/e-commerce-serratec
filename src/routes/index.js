@@ -1,6 +1,6 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
-import Produtos from '../pages/produto';
+import Produtos from '../pages/home';
 import Funcionarios from '../pages/controle/controleFuncionario';
 import ControleProduto from '../pages/controle/controleProduto';
 import ControleCategoria from '../pages/controle/controleCategoria';
