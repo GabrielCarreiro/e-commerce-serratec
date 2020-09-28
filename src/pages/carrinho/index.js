@@ -6,6 +6,8 @@ import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 import api from '../../services/api';
 import { useHistory } from 'react-router-dom';
+import { Alert, AlertTitle } from '@material-ui/lab';
+
 
 
 const Carrinho = () => {
@@ -52,10 +54,21 @@ const Carrinho = () => {
     }
     
     const comprar = async () =>{
+
         var teste = '';
+      
+        if(!localStorage.getItem('@LOJA:user')){
+            setLogin(<Alert  severity="error">
+            <AlertTitle style={{textAlign: "left"}}>---Erro</AlertTitle>
+            Você precisa estar logado para comprar!!!!
+            </Alert>);
+            setTimeout(() => {
+                setLogin(false)
+            }, 3000);
+
        
-        if(localStorage.getItem('@LOJA:user')){
-            setLogin('Você deve realizar o login');
+        
+
             return;
         }else{
 
@@ -132,8 +145,12 @@ const Carrinho = () => {
                         )
                     })}
                     <div>
-                          <button onClick={e => calcularValorTotal()}> Calcular Total </button> 
-                          <p>Valor Total: {valorTotal} </p>                 
+
+                    <p> Valor Total R$ {valorTotal} </p>
+                    <Button id="btnTotal" variant="contained" onClick={e => calcularValorTotal()}  size="10" >Calcular</Button>
+                        
+
+
                     </div>
                 </div>
             ) : (
@@ -142,14 +159,15 @@ const Carrinho = () => {
                     </div>
                 )}
 
-            <Button variant="contained" color="secondary" onClick={e => limpar()} >
+            <Button id="btnLimpar" variant="contained" color="secondary" onClick={e => limpar()} >
                 Limpar
-        </Button>
+            </Button>
        
-            <Button variant="contained" color="primary" onClick={e => comprar()}  >
+            <Button id="btnComprar" variant="contained" color="primary" onClick={e => comprar()}  >
                 Comprar
         </Button>
-        {login}
+        
+        <span id="msgLog">{login}</span>
         </Conteudo>
     )
 }
