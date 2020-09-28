@@ -119,7 +119,7 @@ console.log(login)
 
           {funcioLog &&
               <Button color="inherit" >
-                <a href="/controle" style={{textDecoration:"none", color:"#fff"}}>Gerenciar</a>
+                <a href="/controle" style={{textDecoration:"none"}}>Gerenciar</a>
               </Button>
           }
           </BotaoNav>

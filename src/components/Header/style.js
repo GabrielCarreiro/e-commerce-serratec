@@ -12,7 +12,7 @@ export const BotaoNav = styled.span`
     button{
         display: block-inline;
         margin: 0 10px 0 15px;
-        background-color:#5c5ca8;
+        background-color: #5c5ca8;
         color:  #fff;
         border-radius: 8px;
         border: 1px solid;
