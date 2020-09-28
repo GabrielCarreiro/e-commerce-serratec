@@ -59,16 +59,14 @@ export const Produto = styled.div`
                 &:hover{
                     background-color: #46d900;
                     color: #fafafa;
-                }
-               
+                }              
             }
         }
 
         .qtd{
             margin-left: 4px;
             color: #a1a1a1; 
-        }
-        
+        } 
     }
     .cards0{
         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -108,7 +106,6 @@ export const Title = styled.div`
 `;
 
 export const Content = styled.div`
-    
     margin-top: 50px;
 `;
 
