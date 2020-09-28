@@ -61,6 +61,7 @@ export const Funcionario = styled.div`
 `;
 
 export const Title = styled.div`
+    margin-top: 50px;
     display: flex;
     justify-content: space-between;
     

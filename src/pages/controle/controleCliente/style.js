@@ -25,7 +25,7 @@ td {
     padding:5px;
     width: 500px;  
     color: #303030;
-    border-radius: 5px;
+    border-radius: 3px;
 
 }
 
