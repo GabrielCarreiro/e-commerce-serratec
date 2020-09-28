@@ -3,7 +3,9 @@ import styled from 'styled-components';
 export const BarraNav = styled.div`
     
     svg{
-        margin-right: 8px;
+        margin-right: 6px;
+        width: 50px;
+        height: 30px;
     }
 `
 

@@ -110,13 +110,13 @@ console.log(login)
               Bem vindo {login.nome } !
             </span>
           }
-          <BotaoNav>
+          
           {clienLog || funcioLog ?(
-                <FaUserCircle size={24}/>
+                <FaUserCircle size={24} style={{marginTop: "0px"}}/>
           ):(
             <Button color="inherit" onClick={handleOpen}>Login</Button>
           )}
-
+        <BotaoNav>
           {funcioLog &&
               <Button color="inherit" >
                 <a href="/controle" style={{textDecoration:"none"}}>Gerenciar</a>
@@ -130,10 +130,7 @@ console.log(login)
       <div>
         <Modal
           open={open}
-          onClose={handleClose}
-          aria-labelledby="simple-modal-title"
-          aria-describedby="simple-modal-description"
-        >
+          onClose={handleClose}>
           {<Login/>}
         </Modal>
       </div>
