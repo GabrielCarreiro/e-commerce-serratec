@@ -111,33 +111,27 @@ const ControleCliente = () => {
 
     return (
         <>
-        <Table >
-            
+        <Table >     
             <tr >
-                            <th style={{textAlign:"left"}}>Nome</th>
-                            <th>CPF</th>
-                            <th>Email</th>
-                            <th>Usuario</th>
-                            <th>Alterar</th>
-                            <th>Excluir</th>
+                <th style={{textAlign:"left"}}>Nome</th>
+                <th>CPF</th>
+                <th>Email</th>
+                <th>Usuario</th>
+                <th>Alterar</th>
+                <th>Excluir</th>
             </tr>
                 {cliente.map((client) => {
-                    return (
-                        
-                        <tr key={client.id}  >
-                        
+                    return (                       
+                        <tr key={client.id}  >                       
                             <td style={{width:"10000px",textAlign:"left"}}>{client.nome}</td> 
                             <td>{client.cpf}</td>
                             <td>{client.email}</td>
                             <td>{client.usuario}</td>
                             <td className="btnEdit" style={{textAlign:"center"}}><FiEdit size={20} onClick={e => OpenModal(client.id)} /></td>
-                            <td className="btnDel" style={{textAlign:"center"}}><FiTrash2 size={20} onClick={() => removeCliente(client)} /></td>
-                        
-                        </tr>
-                        
+                            <td className="btnDel" style={{textAlign:"center"}}><FiTrash2 size={20} onClick={() => removeCliente(client)} /></td>                       
+                        </tr>                        
                     )
-                })}
-            
+                })}           
         </Table>
 
             <Modal
@@ -149,16 +143,16 @@ const ControleCliente = () => {
                 {<ClienteModal>
                     <form className="formCliente" onSubmit={alterarCliente}>
                     <label id="nome">Nome</label>
-                    <input type="text" id="nome" value={newNomeClien} onChange={e => setnewNomeClien(e.target.value)}/>
+                    <input type="text" id="nome" value={newNomeClien} onChange={e => setnewNomeClien(e.target.value)} placeholder="Digite seu nome" autoComplete="off"/>
 
                     <label id="cpf">CPF</label>
-                    <input type="text" id="cpf" value={newCpf} onChange={e => setNewCpf(e.target.value)}/>
+                    <input type="text" id="cpf" value={newCpf} onChange={e => setNewCpf(e.target.value)} placeholder="Somente os 11 dígitos" autoComplete="off" maxlength="11"/>
 
                     <label id="email">Email</label>
-                    <input type="text" id="email" value={newEmail} onChange={e => setNewEmail(e.target.value)}/>
+                    <input type="text" id="email" value={newEmail} onChange={e => setNewEmail(e.target.value)} placeholder="digiteseuemail@email.com" autoComplete="off"/>
 
                     <label id="usuario">Usuario</label>
-                    <input type="text" id="usuario" value={newUsuario} onChange={e => setNewUsuario(e.target.value)}/>
+                    <input type="text" id="usuario" value={newUsuario} onChange={e => setNewUsuario(e.target.value)} placeholder="Nome de usuário" autoComplete="off"/>
 
                     <button type="submit"> Alterar </button>
                     </form>
