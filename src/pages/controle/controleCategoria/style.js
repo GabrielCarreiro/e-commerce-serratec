@@ -10,9 +10,10 @@ export const Botao = styled.span`
         align-items: center;
         background-color: #3ec300;
         color: #fff;
+        margin-top: 20px;
         width: 150px;
         height: 60px;
-        border-radius: 8px;
+        border-radius: 10px;
         border: 0;
         box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
         font-weight: 700;
@@ -27,21 +28,23 @@ export const Botao = styled.span`
 
 export const Conteudo = styled.div`
     
-    display: flex;
+    display: grid;
     background-color: #fff;
     justify-content: center;
-    max-width: 360px;
-    height: 360px;
-    margin:150px auto;
+    width: 300px;
+    height: 250px;
+    margin: 150px auto;
     background-color: #f5f5f5;
-    
+    border-radius: 10px;     
 
+   
     form{
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         padding: 10px;
         margin: 20px;
+        
 
         label{
             color: #7C7CE0;
@@ -49,35 +52,37 @@ export const Conteudo = styled.div`
         }
 
         input{
-            border: none;
-            border-bottom: 2px solid;
-            padding: 8px;
             width: 100%;
-            border-color: #7C7CE0;
-            color: #000;
+            margin: 10px 0;
+            border: 0;
+            border-bottom: 1px solid #7c7ce0;
+            padding: 5px;
+            color: #303030;
             background-color: transparent;
-            margin-bottom: 10px;
 
             &:hover,
             &:focus{
                 outline: none;
                 background-color: #7C7CE0;
                 opacity: 0.7;
-                color: #fafafa; 
-            }
+                color: #fff; 
+            } 
 
+            &::placeholder{
+                color: #b0b0b0;
+            }
         }
         
         button{
-            margin: 50px auto 0px auto;
+            margin: 10px auto 10px auto;
             display: flex;
             justify-content: center;
             align-items: center;
             background-color: #3ec300;
             color: #fff;
-            width: 120px;
-            height: 60px;
-            border-radius: 8px;
+            width: 100%;
+            height: 30px;
+            border-radius: 10px;
             border: 0;
             box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
             font-weight: 700;
