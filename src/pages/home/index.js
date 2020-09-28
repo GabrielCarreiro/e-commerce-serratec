@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../services/api';
 import { Produto, Title, Content } from './style';
-import Header from '../../components/Header';
-import { Alert, AlertTitle } from '@material-ui/lab'
+import { Alert, AlertTitle } from '@material-ui/lab';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
-
 
 const Produtos = () => {
     const [Produtos, setProduto] = useState([]);
@@ -27,7 +25,6 @@ const Produtos = () => {
     function getModalStyle() {
         const top = 50 + rand();
         const left = 50 + rand();
-
         return {
             top: `${top}%`,
             left: `${left}%`,
@@ -51,15 +48,14 @@ const Produtos = () => {
         },
     }));
 
-      const classes = useStyles();
+    const classes = useStyles();
     
     const loadProdutos = async () => {
         try {
             const response = await api.get('produto');
             setProduto(response.data)
-
         } catch (error) {
-            console.log("loadProdutos", error)
+            console.log("Erro ao buscar os produtos", error)
         }
     };
     
@@ -78,7 +74,6 @@ const Produtos = () => {
                 teste.push(produto)
                 localStorage.setItem('@LOJA:produto',JSON.stringify(teste));
            }  
-           
            verificarCompra();
     }
 
@@ -86,7 +81,6 @@ const Produtos = () => {
         if(localStorage.getItem('@LOJA:produto')){
             handleOpen()
         }
-        
         setTimeout(() => {
            handleClose()
         }, 3000);
@@ -96,12 +90,11 @@ const Produtos = () => {
         <Content>
             {ProdutoFiltrado === "" ? (
                 <>
-                    <Header />
-                        <Title>
-                            <h1>Produtos</h1>
-                            <label>Filtrar</label>
-                            <input value={ProdutoFiltrado} onChange={e => setProdutoFiltrado(e.target.value)} type="text" placeholder="Digite o nome ou preço" />
-                        </Title>
+                    <Title>
+                        <h1>Produtos</h1>
+                        <label>Filtrar</label>
+                        <input value={ProdutoFiltrado} onChange={e => setProdutoFiltrado(e.target.value)} type="text" placeholder="Digite o nome ou preço" />
+                    </Title>
                     <Produto>
                         {Produtos.map((produto) => {
                             return (
@@ -109,129 +102,110 @@ const Produtos = () => {
                                     <div className="cards1">
                                         <h6>{produto.nomeCategoria}</h6>
                                         <h3>{produto.nome}</h3>
-                                        <div className="cards2" >
+                                        <div className="cards2">
                                             <p>{produto.descricao} </p>
                                         </div>
                                         <img src={produto.fotoLink} alt=""/>
                                     </div>
                                     <span className="qtd">Estoque: 
                                         {produto.qtdEstoque < 1 ?(
-                                                <span> 
-                                                    Indisponivel  
-                                                 </span>
+                                                <span> Indisponivel </span>
                                             ):(
-                                                <span> 
-                                                    {produto.qtdEstoque}
-                                                </span>
+                                                <span> {produto.qtdEstoque} </span>
                                             )}
                                     </span>
                                     <div className="cards3">
                                         <p>{produto.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
-                                        <button type="button" onClick={e => adicionarCarrinho(produto)}>Comprar</button>
+                                        {produto.qtdEstoque < 1 ? (
+                                            <span> </span>
+                                        ):(
+                                            <button type="button" onClick={e => adicionarCarrinho(produto)}>Comprar
+                                            </button>
+                                        )}
                                     </div>
                                 </div>
                             )
                         })
                         }
-
-            <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="simple-modal-title"
-                aria-describedby="simple-modal-description"
-                >
-                {<div style={{margin:"25%"}}>
-                    <Alert severity="success">
-                        <AlertTitle>Sucesso</AlertTitle>
-                        Produto adicionado dentro do <strong>Carrinho!</strong>
-                    </Alert>
-                </div>
-            }
-            </Modal>
+                        <Modal open={open} onClose={handleClose}>
+                            {<div style={{margin:"25%"}}>
+                                <Alert severity="success">
+                                    <AlertTitle>Sucesso</AlertTitle>
+                                    Produto adicionado dentro do <strong>Carrinho!</strong>
+                                </Alert>
+                            </div>
+                            }
+                        </Modal>
                     </Produto>
                                 
                 </>
             ) : (
-                    <>
-                        <Header />
-                        <Title>
-                            <h1>Produtos</h1>
-                            <label>Filtrar</label>
-                            <input value={ProdutoFiltrado} onChange={e => setProdutoFiltrado(e.target.value)} type="text" placeholder="Digite o nome ou preço" />
-                        </Title>
-                        <Produto>
-                            {Produtos.map((produto) => {
-                                if (produto.nome.toUpperCase() === ProdutoFiltrado.toUpperCase()) {
-                                    return (
+                <>
+                     
+                    <Title>
+                        <h1>Produtos</h1>
+                        <label>Filtrar</label>
+                        <input value={ProdutoFiltrado} onChange={e => setProdutoFiltrado(e.target.value)} type="text" placeholder="Digite o nome ou preço" />
+                    </Title>
+                    <Produto>
+                        {Produtos.map((produto) => {
+                            if (produto.nome.toUpperCase() === ProdutoFiltrado.toUpperCase()) {
+                                return (
+                                <div className="cards0" key={produto.id}>
+                                        <div className="cards1" >
+                                            <h6>{produto.nomeCategoria}</h6>
+                                            <h3>{produto.nome}</h3>
+                                            <div className="cards2" >
+                                                <p>{produto.descricao} </p>
+                                            </div>
+                                            <img src={produto.fotoLink} alt=""/>
+                                        </div>
+                                        <span className="qtd">Estoque:                                       
+                                        {produto.qtdEstoque < 1 ?(
+                                            <span> Indisponivel </span>
+                                        ):(
+                                            <span> {produto.qtdEstoque} </span>
+                                        )}       
+                                        </span>
+                                        <div className="cards3">
+                                            <p>R$:{produto.valor}</p>
+                                            <button>Comprar</button>
+                                        </div>
+                                    </div>
+                                )
+                            } else if (produto.valor <= ProdutoFiltrado) {
+                                return (
                                     <div className="cards0" key={produto.id}>
-                                            <div className="cards1" >
-                                                <h6>{produto.nomeCategoria}</h6>
-                                                <h3>{produto.nome}</h3>
-                                                <div className="cards2" >
-                                                    <p>{produto.descricao} </p>
-                                                </div>
-                                                <img src={produto.fotoLink} alt=""/>
+                                        <div className="cards1" >
+                                            <h6>{produto.nomeCategoria}</h6>
+                                            <h3>{produto.nome}</h3>
+                                            <div className="cards2" >
+                                                <p>{produto.descricao} </p>
                                             </div>
-                                            <span className="qtd">Estoque: 
-                                            
-                                            {produto.qtdEstoque < 1 ?(
-                                                <span> 
-                                                    Indisponivel  
-                                                 </span>
+                                            <img src={produto.fotoLink} alt=""/>
+                                        </div>
+                                        <span className="qtd">Estoque: 
+                                        {produto.qtdEstoque < 1 ?(
+                                                <span> Indisponivel </span>
                                             ):(
-                                                <span> 
-                                                    {produto.qtdEstoque}
-                                                </span>
+                                                <span> {produto.qtdEstoque}</span>
                                             )}
-                                            
                                             </span>
-                                            <div className="cards3">
-                                                <p>R$:{produto.valor}</p>
-                                                <button>Comprar</button>
-                                            </div>
+                                        <div className="cards3">
+                                            <p>R$:{produto.valor}</p>
+                                            <button>Comprar</button>
                                         </div>
-                                    )
-                                } else if (produto.valor <= ProdutoFiltrado) {
-                                    return (
-                                        <div className="cards0" key={produto.id}>
-                                            <div className="cards1" >
-                                                <h6>{produto.nomeCategoria}</h6>
-                                                <h3>{produto.nome}</h3>
-                                                <div className="cards2" >
-                                                    <p>{produto.descricao} </p>
-                                                </div>
-                                                <img src={produto.fotoLink} alt=""/>
-                                            </div>
-
-                                            <span className="qtd">Estoque: 
-                                            {produto.qtdEstoque < 1 ?(
-                                                    <span> 
-                                                        Indisponivel  
-                                                    </span>
-                                                ):(
-                                                    <span> 
-                                                        {produto.qtdEstoque}
-                                                    </span>
-                                                )}
-                                                </span>
-                                            <div className="cards3">
-                                                <p>R$:{produto.valor}</p>
-                                                <button>Comprar</button>
-
-                                            </div>
-                                        </div>
-                                    )
-                                }
-                            })
+                                    </div>
+                                )
                             }
-                        </Produto>
-                    </>
-                )
+                        })
+                        }
+                    </Produto>
+                </>
+            )
             }
             <div>
-      
-        </div>
-        
+        </div>        
     </Content>
     )
 }

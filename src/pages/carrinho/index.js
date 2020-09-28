@@ -11,8 +11,9 @@ import { useHistory } from 'react-router-dom';
 const Carrinho = () => {
 
     const [produto, setProduto] = useState([]);
-    const [valorTotal, setValorTotal] = useState([]);
+    const [valorTotal, setValorTotal] = useState(false);
     const [login, setLogin] = useState();
+    const [produtoAtua, setProdutoAtua] = useState();
     var total = [];
     const history = useHistory();
 
@@ -24,6 +25,7 @@ const Carrinho = () => {
 
     useEffect(() => {
         buscarProdutos();
+        atualizarEstoque();
     }, []);
 
     function limpar() {
@@ -35,47 +37,61 @@ const Carrinho = () => {
         produto.map((e) => {
             total.push(e.valor)
         })
-        setValorTotal(total.reduce((total, currentElement) => total + currentElement))
+        if(!valorTotal){
+           setValorTotal(total.reduce((total, currentElement) => total + currentElement))
+        }
     }
 
+    async function atualizarEstoque(){
+        try {
+            const response =  await api.get('produto'); 
+            setProdutoAtua(response.data)
+        } catch (error) {
+            console.log("erro ao atualizar o estoque" ,error )
+        }
+    }
     
     const comprar = async () =>{
-
-        if(!localStorage.getItem('@LOJA:user')){
+        var teste = '';
+       
+        if(localStorage.getItem('@LOJA:user')){
             setLogin('Você deve realizar o login');
             return;
         }else{
 
-            produto.map((prod,t) => {
-
-                const params = {
-                    nome: prod.nome,
-                    descricao: prod.descricao,
-                    qtdEstoque: prod.qtdEstoque -1,
-                    valor: prod.valor,
-                    idCategoria: prod.idCategoria,
-                    idFuncionario: prod.idFuncionario,
-                    dataFabricao: prod.dataFabricacao,
-                    fotoLink: prod.fotoLink
-                }
-                    alterarEstoque(params,prod.id)
-                    produto.splice(t, 1)
-            })  
-        
-
-        
-       
-       setTimeout(() => {
+             produto.map( async(prod,t) => { 
+                atualizarEstoque();
+                    produtoAtua.map((x) =>{
+                        if(x.nome === prod.nome){
+                            teste = x;
+                        }
+                    })             
+                    if(teste){       
+                        const params = {
+                            nome: prod.nome,
+                            descricao: prod.descricao,
+                            qtdEstoque: teste.qtdEstoque -1,
+                            valor: prod.valor,
+                            idCategoria: prod.idCategoria,
+                            idFuncionario: prod.idFuncionario,
+                            dataFabricao: prod.dataFabricacao,
+                            fotoLink: prod.fotoLink
+                            }
+                                alterarEstoque(params,prod.id)        
+                            }    
+                })
+             
+        }
+        setTimeout(() => {
             limpar();
             history.push("/sucesso")
-       }, 3000);
-        }
+        }, 3000);
     }
     
     async function alterarEstoque (params, produtoID){
         try {
-           await api.put(`produto/${produtoID}`, params);
-                    
+           await api.put(`produto/${produtoID}`, params); 
+           atualizarEstoque();            
          } catch (error) {
              console.log('Erro na compra', error);
          }
@@ -107,8 +123,8 @@ const Carrinho = () => {
                                 </tr>
                                 <tr>         
                                     <td><img src={p.fotoLink} style={{ maxWidth: "65px" }} ></img></td>
-                                    <td > {p.nome} </td>
-                                    <td > {p.descricao}</td>
+                                    <td> {p.nome} </td>
+                                    <td> {p.descricao}</td>
                                     <td> {p.valor}</td>
                                     <td style={{ textAlign: "center" }}><FcCancel size={20} onClick={e => removerProduto(a)} /></td>
                                 </tr>
@@ -116,9 +132,8 @@ const Carrinho = () => {
                         )
                     })}
                     <div>
-                        <button onClick={e => calcularValorTotal()}>Calcular Total </button>
-                        <p> Valor Total {valorTotal} </p>
-
+                          <button onClick={e => calcularValorTotal()}> Calcular Total </button> 
+                          <p>Valor Total: {valorTotal} </p>                 
                     </div>
                 </div>
             ) : (
