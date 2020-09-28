@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Botao = styled.span`
     display: flex;
     margin: 50px 0 30px 0;
+    border-radius: 10px;
 
     button{
         display: flex;
@@ -11,8 +12,8 @@ export const Botao = styled.span`
         background-color: #3ec300;
         color: #fff;
         width: 150px;
-        height: 60px;
-        border-radius: 8px;
+        height: 50px;
+        border-radius: 10px;
         border: 0;
         box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
         font-weight: 700;
@@ -27,43 +28,43 @@ export const Botao = styled.span`
 
 export const Conteudo = styled.div`
     
-    display: flex;
+    display: grid;
     background-color: #fff;
     justify-content: center;
-    max-width:880px;
-    height: 380px;
-    margin:150px auto;
+    max-width:550px;
+    height: 600px;
+    margin: 40px auto;
     background-color: #f5f5f5;
+    border-radius: 10px;
     
 
     .grupo{
-        display: flex;
-        flex-wrap: wrap;
-        flex-flow: row-wrap;
-        margin: 0 40px;
-        padding: 30px;
-            
+        display: grid;
+        margin: auto;
+        padding: 15px;
+        justify-content: center;
+                          
         
         label{
+            margin-top: 10px;
             color: #7C7CE0;
             font-weight: 600;
-            display: flex;
-            justify-content: flex-end;
-            align-self: flex-end;
-            width: 100px;
-            flex-grow:1;
+            display: grid;
+            justify-content: auto;
+            text-align: left;   
+            width: 200px;
         }
 
         input{
             border: none;
-            border-bottom: 2px solid;
-            width: 270px;
-            height: 40px;
-            padding: 8px;
+            border-bottom: 1px solid;
+            width: 400px;
+            height: 30px;
+            padding: 10px;
             border-color: #7C7CE0;
-            color: #000;
+            color: #696969;
             background-color: transparent;
-            align-self: flex-end;
+            align-self: auto;
             flex-grow: 1;
             
             &:hover,
@@ -82,9 +83,10 @@ export const Conteudo = styled.div`
             border-color: #7C7CE0;
             background-color: transparent;
             padding: 8px 8px 0 8px;
-            width: 270px;
+            width: 400px;
             height: 40px;
             flex-grow: 1;
+            color: #696969;
 
             &:hover,
             &:focus{
@@ -97,18 +99,18 @@ export const Conteudo = styled.div`
         }
         
         button{
-            margin: 50px auto 0px auto;
+            margin: 30px auto 0px auto;
             display: flex;
             justify-content: center;
             align-items: center;
             background-color: #3ec300;
             color: #fff;
             width: 120px;
-            height: 60px;
-            border-radius: 8px;
+            height: 40px;
+            border-radius: 10px;
             border: 0;
             box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-            font-weight: 700;
+            font-weight: 600;
 
             &:hover{
                 background-color: #46d900;
