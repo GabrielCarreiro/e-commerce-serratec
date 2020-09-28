@@ -5,48 +5,41 @@ import styled from 'styled-components';
 
 export const Conteudo = styled.div`
     background-color: #7c7ce0;
+
+    max-width: 900px;
     display: grid;
     place-items: center;
-    width: 400px;
-    height: 450px;
-    margin: 40px auto;
 
     form {
         background-color: #fff;
-        width: 350px;
-        margin: 100px auto;
-        padding: 20px;
-        border-radius: 10px;
+        margin-top: 100px;
+        padding: 30px;
+        border-radius: 14px;
         align-items:center;
         box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
         opacity: 0.9;
     }
 
     form input {
-        border: none;
-        border-bottom: 1px solid;
-        width: 300px;
-        height: 30px;
-        padding: 10px;
-        border-color: #7C7CE0;
-        color: #fff;
-        background-color: transparent;
-        
-        &:hover,
-        &:focus{
-            outline: none;
-            background-color: #7C7CE0;
-            opacity: 0.7;
-            color: #fff; 
-        } 
+        width: 100%;
+        margin: 10px 0;
+        border: 0;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #7c7ce0;
+        padding: 6px;
+        color: #303030;
+
+        &::placeholder{
+            color: #cdcdcd;
+        }
     }
 
     form label{
-        text-align: left;
+        text-align: center;
         font-weight: bold;
         color: #7c7ce0;
-        width: 320px;
-    }    
+        width: 1000px;
+    }
 
     form button{
         width: 100%;
@@ -58,7 +51,7 @@ export const Conteudo = styled.div`
         transition: 0.2s;
         box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
         text-align: center;
-        margin: 20px auto;
+        margin: 10px 0;
         padding: 5px;
         font-size: 16px;
         font-weight: bold;

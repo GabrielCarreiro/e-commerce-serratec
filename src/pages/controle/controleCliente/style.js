@@ -14,7 +14,7 @@ th{
 
 padding: 18px;
 text-align: center;
-background-color: ;
+background-color: #f5f5f5;
 color: #303030;
 
 }

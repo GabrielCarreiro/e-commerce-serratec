@@ -1,39 +1,33 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 40px;
-
-  ul {
-    display: flex;
-    list-style:none;
+export const BarraNav = styled.div`
     
-    li {
-      font-size: 16px;
-
-      & + li {
-        margin-left: 15px;
-      }
-
-      a {
-        color: #fff;
-        text-decoration: none;
-
-        &:hover {
-          color: #04D361;
-        }
-      }
-
-      span {
-        color: #333;
-        cursor: pointer;
-
-        &:hover {
-          color: #04D361;
-        }
-      }
+    svg{
+        margin-right: 8px;
     }
-  }
+`
+
+export const BotaoNav = styled.span`    
+
+    button{
+        display: block-inline;
+        margin: 0 10px 0 15px;
+        background-color: #5c5ca8;
+        color:  #fff;
+        border-radius: 8px;
+        border: 1px solid;
+        border-color: #fff;
+
+        &:hover{
+            background-color: #fff;
+            color: #5c5ca8;
+            transition: 0.5s;
+        }
+
+    }
+
+    svg{
+        margin-left: 8px; 
+    }
+
 `;

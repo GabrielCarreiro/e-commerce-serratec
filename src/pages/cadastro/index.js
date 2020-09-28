@@ -16,7 +16,7 @@ const Cadastro = () => {
         e.preventDefault();
         const params = {
             nome:newNomeClien,
-            usuario:newUsuario,
+            usuario:newUsuario.toLowerCase(),
             cpf: newCpf,
             email: newEmail,
             dataNascimento: "1992-02-01T00:00:00Z",
