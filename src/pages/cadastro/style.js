@@ -1,7 +1,11 @@
+
+
+
 import styled from 'styled-components';
 
 export const Conteudo = styled.div`
     background-color: #7c7ce0;
+
     max-width: 900px;
     display: grid;
     place-items: center;

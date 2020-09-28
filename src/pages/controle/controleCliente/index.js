@@ -143,16 +143,16 @@ const ControleCliente = () => {
                 {<ClienteModal>
                     <form className="formCliente" onSubmit={alterarCliente}>
                     <label id="nome">Nome</label>
-                    <input type="text" id="nome" value={newNomeClien} onChange={e => setnewNomeClien(e.target.value)}/>
+                    <input type="text" id="nome" value={newNomeClien} onChange={e => setnewNomeClien(e.target.value)} placeholder="Digite seu nome" autoComplete="off"/>
 
                     <label id="cpf">CPF</label>
-                    <input type="text" id="cpf" value={newCpf} onChange={e => setNewCpf(e.target.value)}/>
+                    <input type="text" id="cpf" value={newCpf} onChange={e => setNewCpf(e.target.value)} placeholder="Somente os 11 dígitos" autoComplete="off" maxlength="11"/>
 
                     <label id="email">Email</label>
-                    <input type="text" id="email" value={newEmail} onChange={e => setNewEmail(e.target.value)}/>
+                    <input type="text" id="email" value={newEmail} onChange={e => setNewEmail(e.target.value)} placeholder="digiteseuemail@email.com" autoComplete="off"/>
 
                     <label id="usuario">Usuario</label>
-                    <input type="text" id="usuario" value={newUsuario} onChange={e => setNewUsuario(e.target.value)}/>
+                    <input type="text" id="usuario" value={newUsuario} onChange={e => setNewUsuario(e.target.value)} placeholder="Nome de usuário" autoComplete="off"/>
 
                     <button type="submit"> Alterar </button>
                     </form>
