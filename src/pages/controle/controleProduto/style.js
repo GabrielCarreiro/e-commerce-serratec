@@ -1,3 +1,4 @@
+
 import styled from 'styled-components';
 
 export const Botao = styled.span`
@@ -31,7 +32,7 @@ export const Conteudo = styled.div`
     display: grid;
     background-color: #fff;
     justify-content: center;
-    max-width:550px;
+    width:550px;
     height: 600px;
     margin: 40px auto;
     background-color: #f5f5f5;
@@ -79,7 +80,7 @@ export const Conteudo = styled.div`
 
         select{
             border: none;
-            border-bottom: 2px solid;
+            border-bottom: 1px solid;
             border-color: #7C7CE0;
             background-color: transparent;
             padding: 8px 8px 0 8px;
