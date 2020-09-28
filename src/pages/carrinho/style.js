@@ -1,7 +1,36 @@
+import { Alert } from '@material-ui/lab';
 import styled from 'styled-components';
 
 export const Conteudo = styled.div`
     margin: 20%;
+
+    #btnTotal{
+        width: 75px;
+        height: 20px;
+        font-size: 14px;
+        float: left;
+        padding-top: 5px;
+    }
+
+    #btnComprar{
+        width: 90px;
+        background: #4bcf15;
+        float: right;
+        border-radius: 5px;
+    }
+
+    #btnLimpar{
+        width: 90px;
+        float: right;
+        margin-left: 3px;
+    }
+
+    #msgLog{
+        font-size: 20px;
+        background: red;
+        text-align: center;
+        margin-bottom: 10px;
+    }
 `;
 
 export const Table = styled.div`
@@ -39,4 +68,7 @@ export const Table = styled.div`
     }
 
 `;
+
+
+
 
