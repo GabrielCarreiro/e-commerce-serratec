@@ -9,6 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Modal from '@material-ui/core/Modal';
 import Login from '../../pages/Login';
 import { BotaoNav } from './style';
+import { BarraNav } from './style';
 import {FaUserCircle} from 'react-icons/fa'
 import createHistory from 'history/createBrowserHistory'
 import { FiShoppingCart } from "react-icons/fi";
@@ -95,13 +96,13 @@ console.log(login)
 
   return (
     <div className={classes.root}>
-      <AppBar position="absolute" style={{ backgroundColor: "#5c5ca8", boxShadow: "0 4px 4px -4px rgb(0,0,0)" }} >
+      <BarraNav>
+      <AppBar position="fixed" style={{ backgroundColor: "#5c5ca8", boxShadow: "0 4px 4px -4px rgb(0,0,0)" }} >
         
         <Toolbar>
 
-          
           <Button color="inherit" href="/">AdvancedStore</Button>
-          <Button color="inherit"> <a href="/carrinho" style={{textDecoration:"none", color: "#fff"}}> <FiShoppingCart size={26}/> Carrinho  </a></Button>
+          <a href="/carrinho" style={{textDecoration:"none", color: "#fff"}}><Button color="inherit"> <FiShoppingCart size={24}/>  Carrinho </Button></a>
 
           <Typography style={{ flex: 1 }} />
           {login && 
@@ -111,7 +112,7 @@ console.log(login)
           }
           <BotaoNav>
           {clienLog || funcioLog ?(
-                <FaUserCircle size={36}/>
+                <FaUserCircle size={24}/>
           ):(
             <Button color="inherit" onClick={handleOpen}>Login</Button>
           )}
@@ -125,6 +126,7 @@ console.log(login)
           <Button color="inherit" onClick={e => LogOut() }>LogOut</Button>
         </Toolbar>
       </AppBar>
+      </BarraNav>    
       <div>
         <Modal
           open={open}

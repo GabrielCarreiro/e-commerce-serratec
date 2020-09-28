@@ -1,7 +1,17 @@
 import styled from 'styled-components';
 
-export const BotaoNav = styled.span`
+export const BarraNav = styled.div`
+    
+    svg{
+        margin-right: 8px;
+    }
+`
+
+export const BotaoNav = styled.span`    
+
     button{
+        display: block-inline;
+        margin: 0 10px 0 15px;
         background-color:#5c5ca8;
         color:  #fff;
         border-radius: 8px;
@@ -13,5 +23,11 @@ export const BotaoNav = styled.span`
             color: #5c5ca8;
             transition: 0.5s;
         }
+
     }
+
+    svg{
+        margin-left: 8px; 
+    }
+
 `;
