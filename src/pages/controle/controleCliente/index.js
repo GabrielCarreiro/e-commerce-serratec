@@ -111,33 +111,27 @@ const ControleCliente = () => {
 
     return (
         <>
-        <Table >
-            
+        <Table >     
             <tr >
-                            <th style={{textAlign:"left"}}>Nome</th>
-                            <th>CPF</th>
-                            <th>Email</th>
-                            <th>Usuario</th>
-                            <th>Alterar</th>
-                            <th>Excluir</th>
+                <th style={{textAlign:"left"}}>Nome</th>
+                <th>CPF</th>
+                <th>Email</th>
+                <th>Usuario</th>
+                <th>Alterar</th>
+                <th>Excluir</th>
             </tr>
                 {cliente.map((client) => {
-                    return (
-                        
-                        <tr key={client.id}  >
-                        
+                    return (                       
+                        <tr key={client.id}  >                       
                             <td style={{width:"10000px",textAlign:"left"}}>{client.nome}</td> 
                             <td>{client.cpf}</td>
                             <td>{client.email}</td>
                             <td>{client.usuario}</td>
                             <td className="btnEdit" style={{textAlign:"center"}}><FiEdit size={20} onClick={e => OpenModal(client.id)} /></td>
-                            <td className="btnDel" style={{textAlign:"center"}}><FiTrash2 size={20} onClick={() => removeCliente(client)} /></td>
-                        
-                        </tr>
-                        
+                            <td className="btnDel" style={{textAlign:"center"}}><FiTrash2 size={20} onClick={() => removeCliente(client)} /></td>                       
+                        </tr>                        
                     )
-                })}
-            
+                })}           
         </Table>
 
             <Modal

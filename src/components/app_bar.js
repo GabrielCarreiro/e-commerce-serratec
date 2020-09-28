@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -8,7 +8,9 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Modal from '@material-ui/core/Modal';
 import Home from '../pages/home';
-import { BotaoNav } from './sytle';
+import { BotaoNav } from './style';
+import {FaUserCircle} from 'react-icons/fa'
+import createHistory from 'history/createBrowserHistory'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -47,9 +49,14 @@ function getModalStyle() {
 }
 
 function ButtonAppBar() {
+  const history = createHistory();
   const classes = useStyles();
   const [modalStyle] = React.useState(getModalStyle);
   const [open, setOpen] = React.useState(false);
+  const [clienLog, setclienLog] = useState();
+  const [funcioLog, setFuncioLog] = useState();
+ 
+
   
   const handleOpen = () => {
     setOpen(true);
@@ -58,6 +65,28 @@ function ButtonAppBar() {
   const handleClose = () => {
     setOpen(false);
   };
+
+  function verificarLogin(){
+    if(localStorage.getItem('@LOJA:user')){
+      setclienLog(true)
+    }else if(localStorage.getItem('@LOJA:funcionario')){
+      setFuncioLog(true)
+    }
+  }
+
+  useEffect(()=>{
+    verificarLogin()
+  },[])
+
+  function LogOut(){
+    if(localStorage.getItem('@LOJA:user')){
+      localStorage.removeItem('@LOJA:user')
+      history.go(0)
+    }else if(localStorage.getItem('@LOJA:funcionario')){
+      localStorage.removeItem('@LOJA:funcionario')
+      history.go(0)
+    }
+  }
 
   return (
     <div className={classes.root}>
@@ -71,8 +100,19 @@ function ButtonAppBar() {
 
           <Typography style={{ flex: 1 }} />
           <BotaoNav>
-          <Button color="inherit" onClick={handleOpen}>Login</Button></BotaoNav>  
-          <Button color="inherit">LogOut</Button>
+          {clienLog || funcioLog ?(
+                <FaUserCircle size={36}/>
+          ):(
+            <Button color="inherit" onClick={handleOpen}>Login</Button>
+          )}
+
+          {funcioLog &&
+              <Button color="inherit" >
+                <a href="/controle" style={{textDecoration:"none", color:"#fff"}}>Gerenciar</a>
+              </Button>
+          }
+          </BotaoNav>
+          <Button color="inherit" onClick={e => LogOut() }>LogOut</Button>
         </Toolbar>
       </AppBar>
       <div>

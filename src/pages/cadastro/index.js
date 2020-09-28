@@ -16,7 +16,7 @@ const Cadastro = () => {
         e.preventDefault();
         const params = {
             nome:newNomeClien,
-            usuario:newUsuario,
+            usuario:newUsuario.toLowerCase(),
             cpf: newCpf,
             email: newEmail,
             dataNascimento: "1992-02-01T00:00:00Z",
@@ -44,18 +44,18 @@ const Cadastro = () => {
                 <div>
                     <form onSubmit={cadastrarCliente} >
                     <label id="nome">Nome</label>
-                    <input type="text" id="nome" value={newNomeClien} onChange={e => setnewNomeClien(e.target.value)}/>
-
+                    <input type="text" id="nome" value={newNomeClien} onChange={e => setnewNomeClien(e.target.value)} placeholder="Digite seu nome" autoComplete="off"/>
+                    <br/>
                     <label id="cpf">CPF</label>
-                    <input type="text" id="cpf" value={newCpf} onChange={e => setNewCpf(e.target.value)}/>
-
-                    <label id="email">Email</label>
-                    <input type="text" id="email" value={newEmail} onChange={e => setNewEmail(e.target.value)}/>
-
+                    <input type="text" id="cpf" value={newCpf} onChange={e => setNewCpf(e.target.value)} placeholder="Somente os 11 dígitos" autoComplete="off" maxlength="11"/>
+                    <br/>
+                    <label id="email">E-mail</label>
+                    <input type="text" id="email" value={newEmail} onChange={e => setNewEmail(e.target.value)} placeholder="digiteseuemail@email.com" autoComplete="off"/>
+                    <br/>
                     <label id="usuario">Usuario</label>
-                    <input type="text" id="usuario" value={newUsuario} onChange={e => setNewUsuario(e.target.value)}/>
-
-                    <button type="submit"> Alterar </button>
+                    <input type="text" id="usuario" value={newUsuario} onChange={e => setNewUsuario(e.target.value)} placeholder="Nome de usuário" autoComplete="off"/>
+                    <br/>
+                    <button type="submit"> Cadastrar </button>
                     </form>
                 </div>   
             </Conteudo>        

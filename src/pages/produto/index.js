@@ -57,7 +57,17 @@ const Produtos = () => {
                                         </div>
                                         <img src={produto.fotoLink} alt=""/>
                                     </div>
-                                    <span className="qtd">Estoque: {produto.qtdEstoque}</span>
+                                    <span className="qtd">Estoque: 
+                                        {produto.qtdEstoque < 1 ?(
+                                                <span> 
+                                                    Indisponivel  
+                                                 </span>
+                                            ):(
+                                                <span> 
+                                                    {produto.qtdEstoque}
+                                                </span>
+                                            )}
+                                    </span>
                                     <div className="cards3">
                                         <p>{produto.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
                                         <button type="button" onClick={e => adicionarCarrinho(produto)}>Comprar</button>
@@ -80,7 +90,7 @@ const Produtos = () => {
                             {Produtos.map((produto) => {
                                 if (produto.nome.toUpperCase() === ProdutoFiltrado.toUpperCase()) {
                                     return (
-                                        <div className="cards0" key={produto.id}>
+                                    <div className="cards0" key={produto.id}>
                                             <div className="cards1" >
                                                 <h6>{produto.nomeCategoria}</h6>
                                                 <h3>{produto.nome}</h3>
@@ -89,7 +99,19 @@ const Produtos = () => {
                                                 </div>
                                                 <img src={produto.fotoLink} alt=""/>
                                             </div>
-                                            <span className="qtd">Estoque: {produto.qtdEstoque}</span>
+                                            <span className="qtd">Estoque: 
+                                            
+                                            {produto.qtdEstoque < 1 ?(
+                                                <span> 
+                                                    Indisponivel  
+                                                 </span>
+                                            ):(
+                                                <span> 
+                                                    {produto.qtdEstoque}
+                                                </span>
+                                            )}
+                                            
+                                            </span>
                                             <div className="cards3">
                                                 <p>R$:{produto.valor}</p>
                                                 <button>Comprar</button>
@@ -108,7 +130,17 @@ const Produtos = () => {
                                                 <img src={produto.fotoLink} alt=""/>
                                             </div>
 
-                                            <span className="qtd">Estoque: {produto.qtdEstoque}</span>
+                                            <span className="qtd">Estoque: 
+                                            {produto.qtdEstoque < 1 ?(
+                                                    <span> 
+                                                        Indisponivel  
+                                                    </span>
+                                                ):(
+                                                    <span> 
+                                                        {produto.qtdEstoque}
+                                                    </span>
+                                                )}
+                                                </span>
                                             <div className="cards3">
                                                 <p>R$:{produto.valor}</p>
                                                 <button>Comprar</button>
