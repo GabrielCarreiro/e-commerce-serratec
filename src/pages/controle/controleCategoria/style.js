@@ -12,7 +12,7 @@ export const Botao = styled.span`
         color: #fff;
         margin-top: 20px;
         width: 150px;
-        height: 60px;
+        height: 40px;
         border-radius: 10px;
         border: 0;
         box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -66,11 +66,8 @@ export const Conteudo = styled.div`
                 background-color: #7C7CE0;
                 opacity: 0.7;
                 color: #fff; 
+                border-radius: 10px;
             } 
-
-            &::placeholder{
-                color: #b0b0b0;
-            }
         }
         
         button{
