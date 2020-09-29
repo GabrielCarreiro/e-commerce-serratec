@@ -34,9 +34,9 @@ const useStyles = makeStyles((theme) => ({
     const classes = useStyles();
       
 
-//    setTimeout(() => {
-//        history.push("/")
-//    }, 10000);
+   setTimeout(() => {
+       history.push("/")
+   }, 10000);
 
     return (
         <Timeline style={{paddingTop: "30px"}} align="alternate">

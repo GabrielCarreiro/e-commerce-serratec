@@ -6,6 +6,12 @@ export const BarraNav = styled.div`
         margin-right: 6px;
         width: 50px;
         height: 30px;
+
+    #btnGer {
+        color: white;
+        
+    }
+
     }
 `
 

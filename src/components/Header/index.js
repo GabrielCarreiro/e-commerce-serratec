@@ -118,8 +118,8 @@ console.log(login)
           )}
         <BotaoNav>
           {funcioLog &&
-              <Button color="inherit" >
-                <a href="/controle" style={{textDecoration:"none"}}>Gerenciar</a>
+              <Button id="btnGer" color="inherit" href="/controle" >
+                Gerenciar
               </Button>
           }
           </BotaoNav>
