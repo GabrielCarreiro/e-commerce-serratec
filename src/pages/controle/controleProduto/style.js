@@ -1,4 +1,3 @@
-
 import styled from 'styled-components';
 
 export const Botao = styled.span`
@@ -12,8 +11,8 @@ export const Botao = styled.span`
         align-items: center;
         background-color: #3ec300;
         color: #fff;
-        width: 150px;
-        height: 50px;
+        width: 120px;
+        height: 40px;
         border-radius: 10px;
         border: 0;
         box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -43,8 +42,7 @@ export const Conteudo = styled.div`
         display: grid;
         margin: auto;
         padding: 15px;
-        justify-content: center;
-                          
+        justify-content: center;                         
         
         label{
             margin-top: 10px;
@@ -74,6 +72,7 @@ export const Conteudo = styled.div`
                 background-color: #7C7CE0;
                 opacity: 0.7;
                 color: #fafafa; 
+                border-radius: 10px;
             }
 
         }
@@ -82,10 +81,11 @@ export const Conteudo = styled.div`
             border: none;
             border-bottom: 1px solid;
             border-color: #7C7CE0;
+            border-radius: 10px;
             background-color: transparent;
             padding: 8px 8px 0 8px;
             width: 400px;
-            height: 40px;
+            height: 35px;
             flex-grow: 1;
             color: #696969;
 
@@ -95,19 +95,18 @@ export const Conteudo = styled.div`
                 background-color: #7C7CE0;
                 opacity: 0.6;
                 color: #fafafa; 
-            }
-            
+            } 
         }
         
         button{
-            margin: 30px auto 0px auto;
+            margin: 20px auto 0px auto;
             display: flex;
             justify-content: center;
             align-items: center;
             background-color: #3ec300;
             color: #fff;
-            width: 120px;
-            height: 40px;
+            width: 100px;
+            height: 35px;
             border-radius: 10px;
             border: 0;
             box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
