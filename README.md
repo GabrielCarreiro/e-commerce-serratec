@@ -23,6 +23,25 @@ A <strong> Advanced Store </strong> é uma loja virtual feita em React.JS na dis
 <strong> Passo 7 > </strong> <i> Digite `npm i` para instalar as dependências do projeto e aguarde. </i><br>
 <strong> Passo 8 > </strong> <i> Digite `npm start` para iniciar o servidor de desenvolvimento e aguardo a execução.</i><br>
 
+## ⌨ Tecnologia 
+
+👉<i> React.js </i><br/>
+👉<i> Material-ui </i><br/>
+👉<i> React-icons </i><br/>
+👉<i> Axios </i><br/>
+👉<i> React Router Dom </i><br/>
+👉<i> Styled-Components </i>
+
+
 ## 📋 Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para saber mais detalhes.
+
+## 👩‍💻👨‍💻 Equipe
+
+<a href="https://github.com/Bibiper"> Bianca </a> |
+<a href="https://github.com/brunoBarGon"> Bruno de Barros</a> |
+<a href="https://github.com/GabrielCarreiro">Gabriel Carreiro</a> |
+<a href="https://github.com/nogueira-jonathan"> Jonathan Santana </a> |
+<a href="https://github.com/KARLA-DINIZ"> Karla Verônica </a> |
+<a href="https://github.com/elviamasiero"> Elvia Goulart </a> 
