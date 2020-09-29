@@ -1,5 +1,6 @@
-<img src="https://i.imgur.com/puV8oFv.png" width="400"> <img src="https://i.imgur.com/OYE4V2m.png" width="400">
-<img src="https://i.imgur.com/CvniL30.png" width="400"> <img src="https://i.imgur.com/EPkVqDq.png" width="400">
+<img src="https://i.imgur.com/puV8oFv.png" width="400"> <img src="https://i.imgur.com/CvniL30.png" width="400">
+<img src="https://i.imgur.com/OYE4V2m.png" width="400"> <img src="https://i.imgur.com/EPkVqDq.png" width="400">
+
 
 <h1 align="center">Ecommerce Advanced Store </h1>
  <p align="center"> <strong> Sua loja de produtos eletrônicos, livros e informática!</strong></p>
