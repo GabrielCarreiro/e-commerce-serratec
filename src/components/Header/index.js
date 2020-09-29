@@ -99,7 +99,7 @@ function ButtonAppBar() {
         
         <Toolbar>
 
-          <Button color="inherit" href="/">AdvancedStore</Button>
+          <Button color="inherit" href="/">ADVANCED STORE</Button>
           <a href="/carrinho" style={{textDecoration:"none", color: "#fff"}}><Button color="inherit"> <FiShoppingCart size={24}/>  Carrinho </Button></a>
 
           <Typography style={{ flex: 1 }} />

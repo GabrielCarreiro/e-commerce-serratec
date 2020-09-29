@@ -141,11 +141,8 @@ const Funcionarios = () => {
                                 <p> Cpf:{funcionario.cpf}</p>                                             
                             </div>
                             <span>
-                                <a href="#"> Acessar </a>
-                                <span>
-                                    <FiEdit size={22} style={{ opacity: 0.7 }} onClick={() => handleModal(funcionario)} />
-                                    <FiTrash2 size={22} onClick={() => removeFuncionario(funcionario)} style={{ opacity: 0.7 }} />
-                                </span>
+                                 <FiEdit size={22} style={{ opacity: 0.7 }} onClick={() => handleModal(funcionario)} />
+                                 <FiTrash2 size={22} onClick={() => removeFuncionario(funcionario)} style={{ opacity: 0.7 }} />
                             </span>
                         </div>
                     )

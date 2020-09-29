@@ -35,16 +35,6 @@ export const Funcionario = styled.div`
         span{
             display: flex;
             justify-content: space-between;
-
-            a{  
-                text-decoration: none;
-                color: #7c7ce0;
-                font-weight: bold;
-                transition: 0.2s;
-
-                &:hover{
-                    color: #6666ba;
-                }  
             }
         }
     }
@@ -113,7 +103,7 @@ export const Form = styled.div`
 
     button{
         width: 120px;
-        height: 45px;
+        height: 40px;
         margin-left: 5px;
         background-color: #3ec300;
         color: #fff;

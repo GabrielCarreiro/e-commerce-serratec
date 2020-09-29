@@ -5,9 +5,9 @@ export const Table = styled.div`
     margin:60px;
     column-rule-width: 1px;
     border: 1px solid #ddd;
-    background: whitesmoke;
+    background: #ffffff;
     box-align:  auto;
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 
 th{
@@ -16,6 +16,7 @@ padding: 18px;
 text-align: center;
 background-color: #f5f5f5;
 color: #303030;
+border-radius: 5px;
 
 }
 
@@ -25,8 +26,7 @@ td {
     padding:5px;
     width: 500px;  
     color: #303030;
-    border-radius: 3px;
-
+    border-radius: 5px;
 }
 
 tr{
@@ -35,27 +35,24 @@ tr{
 
 tr:nth-child(even) {
     background-color: #c1c1f4;
-    
 }
-
 
 tr:hover {
     background-color: #ddd;
 }
-
 `;
 
 export const ClienteModal = styled.div`
     display: flex;
-    background-color: #fff;
+    background-color: #ffffff;
     margin: 150px auto;
     border-radius: 10px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    max-width: 500px;
+    max-width: 400px;
     justify-content: center;
 
     form {
-        background-color: #fff;
+        background-color: #ffffff;
         padding: 30px;
         border-radius: 10px;
         align-items:center;
@@ -77,7 +74,8 @@ export const ClienteModal = styled.div`
             outline: none;
             background-color: #7C7CE0;
             opacity: 0.7;
-            color: #fff;    
+            color: #FFFFFF;   
+            border-radius: 8px;
         }
 
         &::placeholder{
@@ -89,14 +87,14 @@ export const ClienteModal = styled.div`
         text-align: center;
         font-weight: bold;
         color: #7c7ce0;
-        width: 1000px;
+        width: 300px;
     }
 
     form button{
-        width: 75px;
+        width: 100%;
         height: 30px;
         background-color: #3ec300;
-        color: #fff;
+        color: #FFFFFF;
         border: 0;
         border-radius: 8px;
         transition: 0.2s;

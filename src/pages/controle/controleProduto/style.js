@@ -1,4 +1,3 @@
-
 import styled from 'styled-components';
 
 export const Botao = styled.span`
@@ -11,7 +10,7 @@ export const Botao = styled.span`
         justify-content: center;
         align-items: center;
         background-color: #3ec300;
-        color: #fff;
+        color: #ffffff;
         width: 120px;
         height: 40px;
         border-radius: 10px;
@@ -30,7 +29,7 @@ export const Botao = styled.span`
 export const Conteudo = styled.div`
     
     display: grid;
-    background-color: #fff;
+    background-color: #ffffff;
     justify-content: center;
     width:550px;
     height: 600px;
@@ -96,6 +95,7 @@ export const Conteudo = styled.div`
                 background-color: #7C7CE0;
                 opacity: 0.6;
                 color: #fafafa; 
+                border-radius: 10px;
             } 
         }
         
@@ -105,8 +105,8 @@ export const Conteudo = styled.div`
             justify-content: center;
             align-items: center;
             background-color: #3ec300;
-            color: #fff;
-            width: 100px;
+            color: #ffffff;
+            width: 100%;
             height: 35px;
             border-radius: 10px;
             border: 0;
