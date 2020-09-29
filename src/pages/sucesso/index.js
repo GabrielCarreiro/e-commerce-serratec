@@ -29,14 +29,13 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.secondary.main,
         },
       }));
-
-
-    const classes = useStyles();
       
 
-   setTimeout(() => {
-       history.push("/")
-   }, 10000);
+    const classes = useStyles();
+    
+        setTimeout(() => {
+          history.push("/")
+        }, 10000);
 
     return (
         <Timeline style={{paddingTop: "30px"}} align="alternate">
@@ -113,7 +112,7 @@ const useStyles = makeStyles((theme) => ({
           <TimelineContent>
             <Paper elevation={3} className={classes.paper}>
               <Typography variant="h6" component="h1">
-                Entrega Efetuada
+                Data da Entrega
               </Typography>
               <Typography>Prazo de 5 a 7 dias úteis</Typography>
             </Paper>
