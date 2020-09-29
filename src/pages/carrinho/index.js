@@ -6,6 +6,8 @@ import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 import api from '../../services/api';
 import { useHistory } from 'react-router-dom';
+import { Alert, AlertTitle } from '@material-ui/lab';
+
 
 
 const Carrinho = () => {
@@ -52,25 +54,31 @@ const Carrinho = () => {
     }
     
     const comprar = async () =>{
-        var teste = '';
-       
-        if(localStorage.getItem('@LOJA:user')){
-            setLogin('Você deve realizar o login');
+
+        var listaProduto = '';
+      
+        if(!localStorage.getItem('@LOJA:user')){
+            setLogin(<Alert  severity="error">
+                <AlertTitle style={{textAlign: "left"}}>---Erro</AlertTitle>
+                Você precisa estar logado para comprar!!!!
+            </Alert>);
+            setTimeout(() => {
+                setLogin(false)
+            }, 3000);
             return;
         }else{
-
              produto.map( async(prod,t) => { 
                 atualizarEstoque();
-                    produtoAtua.map((x) =>{
-                        if(x.nome === prod.nome){
-                            teste = x;
+                    produtoAtua.map((produt) =>{
+                        if(produt.nome === prod.nome){
+                            listaProduto = produt;
                         }
                     })             
-                    if(teste){       
+                    if(listaProduto){       
                         const params = {
                             nome: prod.nome,
                             descricao: prod.descricao,
-                            qtdEstoque: teste.qtdEstoque -1,
+                            qtdEstoque: listaProduto.qtdEstoque -1,
                             valor: prod.valor,
                             idCategoria: prod.idCategoria,
                             idFuncionario: prod.idFuncionario,
@@ -79,8 +87,7 @@ const Carrinho = () => {
                             }
                                 alterarEstoque(params,prod.id)        
                             }    
-                })
-             
+                        }) 
         }
         setTimeout(() => {
             limpar();
@@ -90,8 +97,7 @@ const Carrinho = () => {
     
     async function alterarEstoque (params, produtoID){
         try {
-           await api.put(`produto/${produtoID}`, params); 
-           atualizarEstoque();            
+           await api.put(`produto/${produtoID}`, params);             
          } catch (error) {
              console.log('Erro na compra', error);
          }
@@ -132,24 +138,29 @@ const Carrinho = () => {
                         )
                     })}
                     <div>
-                          <button onClick={e => calcularValorTotal()}> Calcular Total </button> 
-                          <p>Valor Total: {valorTotal} </p>                 
+
+                    <p> Valor Total R$ {valorTotal} </p>
+                    <Button id="btnTotal" variant="contained" onClick={e => calcularValorTotal()}  size="10" >Calcular</Button>
+                        
+
+
                     </div>
                 </div>
             ) : (
                     <div>
-                        <p> Nenhum produto no carrinho</p>
+                        <p className="txt"> Nenhum produto no carrinho ! </p>
                     </div>
                 )}
 
-            <Button variant="contained" color="secondary" onClick={e => limpar()} >
+            <Button id="btnLimpar" variant="contained" color="secondary" onClick={e => limpar()} >
                 Limpar
-        </Button>
+            </Button>
        
-            <Button variant="contained" color="primary" onClick={e => comprar()}  >
+            <Button id="btnComprar" variant="contained" color="primary" onClick={e => comprar()}  >
                 Comprar
         </Button>
-        {login}
+        
+        <span id="msgLog">{login}</span>
         </Conteudo>
     )
 }

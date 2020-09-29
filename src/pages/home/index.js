@@ -169,7 +169,12 @@ const Produtos = () => {
                                         </span>
                                         <div className="cards3">
                                             <p>R$:{produto.valor}</p>
-                                            <button>Comprar</button>
+                                            {produto.qtdEstoque < 1 ? (
+                                            <span> </span>
+                                            ):(
+                                                <button type="button" onClick={e => adicionarCarrinho(produto)}>Comprar
+                                                </button>
+                                            )}
                                         </div>
                                     </div>
                                 )
@@ -193,7 +198,12 @@ const Produtos = () => {
                                             </span>
                                         <div className="cards3">
                                             <p>R$:{produto.valor}</p>
-                                            <button>Comprar</button>
+                                            {produto.qtdEstoque < 1 ? (
+                                                <span> </span>
+                                            ):(
+                                                <button type="button" onClick={e => adicionarCarrinho(produto)}>Comprar
+                                                </button>
+                                            )}
                                         </div>
                                     </div>
                                 )

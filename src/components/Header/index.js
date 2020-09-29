@@ -59,8 +59,6 @@ function ButtonAppBar() {
   const [funcioLog, setFuncioLog] = useState();
   const [login, setLogin] = useState();
  
-
-  
   const handleOpen = () => {
     setOpen(true);
   };
@@ -92,7 +90,7 @@ function ButtonAppBar() {
       history.go(0)
     }
   }
-console.log(login)
+
 
   return (
     <div className={classes.root}>
@@ -110,16 +108,16 @@ console.log(login)
               Bem vindo {login.nome } !
             </span>
           }
-          <BotaoNav>
+          
           {clienLog || funcioLog ?(
-                <FaUserCircle size={24}/>
+                <FaUserCircle size={24} style={{marginTop: "0px"}}/>
           ):(
             <Button color="inherit" onClick={handleOpen}>Login</Button>
           )}
-
+        <BotaoNav>
           {funcioLog &&
-              <Button color="inherit" >
-                <a href="/controle" style={{textDecoration:"none"}}>Gerenciar</a>
+              <Button id="btnGer" color="inherit" href="/controle" >
+                Gerenciar
               </Button>
           }
           </BotaoNav>
@@ -130,10 +128,7 @@ console.log(login)
       <div>
         <Modal
           open={open}
-          onClose={handleClose}
-          aria-labelledby="simple-modal-title"
-          aria-describedby="simple-modal-description"
-        >
+          onClose={handleClose}>
           {<Login/>}
         </Modal>
       </div>
