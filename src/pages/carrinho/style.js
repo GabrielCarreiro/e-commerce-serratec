@@ -31,6 +31,11 @@ export const Conteudo = styled.div`
         text-align: center;
         margin-bottom: 10px;
     }
+
+    .txt{
+        color: #fff;
+        font-size: 20px;
+    }
 `;
 
 export const Table = styled.div`

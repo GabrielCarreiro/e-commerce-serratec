@@ -120,6 +120,11 @@ const Funcionarios = () => {
         }
     }
 
+    function handleModal(funcionario){
+        setIdFuncio(funcionario.id);
+        handleOpen();
+    }
+
 
     return (
         <>
@@ -133,42 +138,12 @@ const Funcionarios = () => {
                         <div className="cards0" key={funcionario.id}>
                             <div>
                                 <h3>{funcionario.nome}</h3>
-                                <p> Cpf:{funcionario.cpf}</p>
-                                <div>
-                                    <Modal
-                                        open={open}
-                                        onClose={handleClose}
-                                        aria-labelledby="simple-modal-title"
-                                        aria-describedby="simple-modal-description">
-                                        {status > 0 ? (
-                                            <div>
-                                                <Form>
-                                                    <form onSubmit={alterarCliente} >
-                                                        <input type="text" value={newNome} onChange={e => setNewNome(e.target.value)} placeholder={funcionario.nome}/>
-                                                        <input type="text" value={newCpf} onChange={e => setNewCpf(e.target.value)} placeholder={funcionario.cpf} />
-                                                        <button type="submit" onClick={e => setIdFuncio(funcionario.id)}>Alterar</button>
-                                                    </form>
-                                                </Form>
-                                            </div>
-                                        ) : (
-                                                <div>
-                                                    <Form>
-                                                        <form onSubmit={cadastraCliente} >
-                                                            <input type="text" value={newNome} onChange={e => setNewNome(e.target.value)} placeholder="Digite um nome"/>
-                                                            <input type="text" value={newCpf} onChange={e => setNewCpf(e.target.value)} placeholder="Digite o cpf"/>
-                                                            <button type="submit">Cadastrar</button>
-                                                        </form>
-                                                    </Form>
-                                                </div>
-                                            )
-                                        }
-                                    </Modal>
-                                </div>
+                                <p> Cpf:{funcionario.cpf}</p>                                             
                             </div>
                             <span>
                                 <a href="#"> Acessar </a>
                                 <span>
-                                    <FiEdit size={22} style={{ opacity: 0.7 }} onClick={handleOpen} />
+                                    <FiEdit size={22} style={{ opacity: 0.7 }} onClick={() => handleModal(funcionario)} />
                                     <FiTrash2 size={22} onClick={() => removeFuncionario(funcionario)} style={{ opacity: 0.7 }} />
                                 </span>
                             </span>
@@ -177,6 +152,34 @@ const Funcionarios = () => {
                 })
                 }
 
+                <Modal
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="simple-modal-title"
+                    aria-describedby="simple-modal-description">
+                    {status > 0 ? (
+                        <div>
+                            <Form>
+                                <form onSubmit={alterarCliente} >
+                                    <input type="text" value={newNome} onChange={e => setNewNome(e.target.value)} placeholder="Digite o nome"/>
+                                    <input type="text" value={newCpf} onChange={e => setNewCpf(e.target.value)}  placeholder="Digite o cpf"/>
+                                    <button type="submit">Alterar</button>
+                                </form>
+                            </Form>
+                        </div>
+                    ) : (
+                            <div>
+                                <Form>
+                                    <form onSubmit={cadastraCliente} >
+                                        <input type="text" value={newNome} onChange={e => setNewNome(e.target.value)} placeholder="Digite o nome"/>
+                                        <input type="text" value={newCpf} onChange={e => setNewCpf(e.target.value)} placeholder="Digite o cpf"/>
+                                        <button type="submit">Cadastrar</button>
+                                    </form>
+                                </Form>
+                            </div>
+                        )
+                    }
+                </Modal>
             </Funcionario>
 
         </>

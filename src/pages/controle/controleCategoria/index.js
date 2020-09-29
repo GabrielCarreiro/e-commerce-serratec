@@ -12,7 +12,7 @@ import { FiTrash2, FiEdit } from 'react-icons/fi'
 import Modal from '@material-ui/core/Modal';
 import { Botao } from './style.js';
 import { Conteudo } from './style.js';
-import { TabUnselectedSharp, TrafficRounded } from '@material-ui/icons';
+
 
 
 /*import Cliente from '../../models/Cliente';*/
@@ -21,7 +21,6 @@ const ControleCategoria = () => {
     const [open, setOpen] = React.useState(false);
     const [categoria, setCategoria] = useState([]);
     const [status, setStatus] = useState();
-    const [newIdCate, setNewIdCate] = useState();
     const [newNomeCate, setNewNomeCate] = useState('');
     const [newDescriCate, setNewDescriCate] = useState('');
     const [idCate, setIdCate] = useState();

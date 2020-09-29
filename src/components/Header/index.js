@@ -59,8 +59,6 @@ function ButtonAppBar() {
   const [funcioLog, setFuncioLog] = useState();
   const [login, setLogin] = useState();
  
-
-  
   const handleOpen = () => {
     setOpen(true);
   };
@@ -92,7 +90,7 @@ function ButtonAppBar() {
       history.go(0)
     }
   }
-console.log(login)
+
 
   return (
     <div className={classes.root}>
