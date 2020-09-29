@@ -76,8 +76,8 @@ const Login = () => {
                 <input type="password" placeholder="Digite sua senha" autoComplete="off" onChange={e => setSenha(e.target.value)}></input>
                 {erro && 
                     <span>{erro}</span> }
-                <button type="button" onClick={e => logar()}>Entra</button>
-                <a href="/cadastro" style={{textDecoration:"none"}}>Cadastra-se</a>
+                <button type="button" onClick={e => logar()}>Entrar</button>
+                <a href="/cadastro" style={{textDecoration:"none"}}>Cadastrar</a>
             </div>
         </HomePage>
     )

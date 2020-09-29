@@ -29,6 +29,14 @@ export const Conteudo = styled.div`
         padding: 6px;
         color: #303030;
 
+        &:hover,
+        &:focus{
+            outline: none;
+            background-color: #7C7CE0;
+            opacity: 0.7;
+            color: #fff;  
+        }    
+
         &::placeholder{
             color: #cdcdcd;
         }
@@ -63,5 +71,7 @@ export const Conteudo = styled.div`
 }
   
 `;
+
+
 
 

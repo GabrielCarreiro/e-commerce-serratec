@@ -98,7 +98,7 @@ export const ClienteModal = styled.div`
         background-color: #3ec300;
         color: #fff;
         border: 0;
-        border-radius: 6px;
+        border-radius: 8px;
         transition: 0.2s;
         box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
         text-align: center;
