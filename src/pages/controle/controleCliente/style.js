@@ -16,6 +16,7 @@ padding: 18px;
 text-align: center;
 background-color: #f5f5f5;
 color: #303030;
+border-radius: 5px;
 
 }
 
@@ -25,7 +26,7 @@ td {
     padding:5px;
     width: 500px;  
     color: #303030;
-    border-radius: 3px;
+    border-radius: 5px;
 
 }
 
@@ -35,14 +36,11 @@ tr{
 
 tr:nth-child(even) {
     background-color: #c1c1f4;
-    
 }
-
 
 tr:hover {
     background-color: #ddd;
 }
-
 `;
 
 export const ClienteModal = styled.div`
@@ -77,7 +75,8 @@ export const ClienteModal = styled.div`
             outline: none;
             background-color: #7C7CE0;
             opacity: 0.7;
-            color: #fff;    
+            color: #fff;   
+            border-radius: 8px;
         }
 
         &::placeholder{
@@ -93,7 +92,7 @@ export const ClienteModal = styled.div`
     }
 
     form button{
-        width: 75px;
+        width: 100%;
         height: 30px;
         background-color: #3ec300;
         color: #fff;
