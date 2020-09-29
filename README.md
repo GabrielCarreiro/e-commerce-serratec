@@ -1,5 +1,5 @@
-<h1 align="center"> Projeto Final </h1>
- <p align="center"> <strong> Ecommerce Advanced Store</strong></p>
+<h1 align="center">Ecommerce Advanced Store </h1>
+ <p align="center"> <strong> Sua loja de produtos eletrônicos, livros e informática!</strong></p>
 
 <p align="center">
   <a href="#-descrição">Descrição</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -9,7 +9,7 @@
 
 ## ✍ Descrição
 
-A <strong> Advanced Store </strong> é a sua loja de produtos eletrônicos, livros e informática!
+A <strong> Advanced Store </strong> é uma loja virtual feita em React.JS na disciplina da residência de software, consumindo uma API Rest a loja virtual possui algumas funcionabilidades como: crud de categoria, funcionário, produto, cliente, funcionamento do carrinho e login. Um projeto simples, porém, muito desafiador que ao logo de todo seu desenvolvimento trouxeram diversos conhecimentos. 
 
 
  ## 💻 Instalação e execução
