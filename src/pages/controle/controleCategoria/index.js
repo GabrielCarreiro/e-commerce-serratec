@@ -25,8 +25,6 @@ const ControleCategoria = () => {
     const [newDescriCate, setNewDescriCate] = useState('');
     const [idCate, setIdCate] = useState();
 
-
-
     const loadCategoria = async () => {
         try {
             const response = await api.get('categoria');
@@ -49,15 +47,15 @@ const ControleCategoria = () => {
         body: {
             fontSize: 14,
         },
-    }))(TableCell);
+        }))(TableCell);
 
-    const StyledTableRow = withStyles((theme) => ({
-        root: {
-            '&:nth-of-type(odd)': {
-                backgroundColor: theme.palette.action.hover,
+        const StyledTableRow = withStyles((theme) => ({
+            root: {
+                '&:nth-of-type(odd)': {
+                    backgroundColor: theme.palette.action.hover,
+                },
             },
-        },
-    }))(TableRow);
+        }))(TableRow);
 
 
     const useStyles = makeStyles({
@@ -118,8 +116,8 @@ const ControleCategoria = () => {
         e.preventDefault();
 
         const params = {
-            nome:newNomeCate,
-            descricao:newDescriCate
+            nome: newNomeCate,
+            descricao: newDescriCate
         }
 
         console.log(newNomeCate)
@@ -139,8 +137,8 @@ const ControleCategoria = () => {
         e.preventDefault();
 
         const params = {
-            nome:newNomeCate,
-            descricao:newDescriCate
+            nome: newNomeCate,
+            descricao: newDescriCate
         }
 
         try {
@@ -149,12 +147,12 @@ const ControleCategoria = () => {
             handleClose();
         } catch (error) {
             console.log('Erro ao alterar Categoria', error);
-            
+
 
         }
     }
 
-    function teste(catego) {
+    function openModal(catego) {
         setIdCate(catego)
         handleOpenCadastrar();
     }
@@ -187,7 +185,7 @@ const ControleCategoria = () => {
                                     <StyledTableCell align="center">{catego.nome}</StyledTableCell>
                                     <StyledTableCell align="center">{catego.descricao}</StyledTableCell>
                                     <StyledTableCell align="center"> <FiTrash2 size={20} onClick={() => removeCategoria(catego)} />
-                                        <FiEdit size={20} onClick={e => teste(catego.id)} /></StyledTableCell>
+                                        <FiEdit size={20} onClick={e => openModal(catego.id)} /></StyledTableCell>
 
                                 </StyledTableRow>
                             ))}
@@ -195,7 +193,6 @@ const ControleCategoria = () => {
                     </Table>
                 </TableContainer>
                 <div>
-
                     <Modal
                         open={open}
                         onClose={handleClose}
@@ -206,7 +203,7 @@ const ControleCategoria = () => {
                                     <form onSubmit={cadastrarCategoria}>
                                         <div className="grupo">
                                             <label id="nome"> Nome </label>
-                                            <input type="text" id="nome" value={newNomeCate} onChange={e => setNewNomeCate(e.target.value)}/>
+                                            <input type="text" id="nome" value={newNomeCate} onChange={e => setNewNomeCate(e.target.value)} />
                                             <label id="descricao"> Descrição </label>
                                             <input type="text" value={newDescriCate} onChange={e => setNewDescriCate(e.target.value)} id="descricao" />
                                             <button type="submit" > Cadastrar</button>
@@ -218,7 +215,7 @@ const ControleCategoria = () => {
                                                 <label id="nome" > Nome </label>
                                                 <input type="text" value={newNomeCate} onChange={e => setNewNomeCate(e.target.value)} id="nome" />
                                                 <label id="descricao"> Descrição </label>
-                                                <input type="text" value={newDescriCate} onChange={e =>  setNewDescriCate(e.target.value)} id="descricao" />
+                                                <input type="text" value={newDescriCate} onChange={e => setNewDescriCate(e.target.value)} id="descricao" />
                                                 <button type="submit" > Alterar</button>
                                             </div>
                                         </form>

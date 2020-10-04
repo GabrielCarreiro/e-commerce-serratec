@@ -19,7 +19,6 @@ const Carrinho = () => {
     var total = [];
     const history = useHistory();
 
-
     const buscarProdutos = () => {
         var produtos = JSON.parse(localStorage.getItem('@LOJA:produto'));
         setProduto(produtos)
@@ -105,13 +104,10 @@ const Carrinho = () => {
 
     function removerProduto(a){
         var produtos = JSON.parse(localStorage.getItem('@LOJA:produto'));
-
-        produtos.splice(a,1)
-         
+        produtos.splice(a,1) 
         localStorage.setItem('@LOJA:produto',JSON.stringify(produtos));
         buscarProdutos();
     }
-
 
     return (
         <Conteudo>
@@ -141,9 +137,6 @@ const Carrinho = () => {
 
                     <p> Valor Total R$ {valorTotal} </p>
                     <Button id="btnTotal" variant="contained" onClick={e => calcularValorTotal()}  size="10" >Calcular</Button>
-                        
-
-
                     </div>
                 </div>
             ) : (
@@ -158,10 +151,10 @@ const Carrinho = () => {
        
             <Button id="btnComprar" variant="contained" color="primary" onClick={e => comprar()}  >
                 Comprar
-        </Button>
+            </Button>
         
-        <span id="msgLog">{login}</span>
-        </Conteudo>
+            <span id="msgLog">{login}</span>
+            </Conteudo>
     )
 }
 
